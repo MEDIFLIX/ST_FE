@@ -12,8 +12,8 @@ const Router = () => {
       <ErrorBoundary>
         <Suspense fallback={<Spinner />}>
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/main" element={<MainPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
