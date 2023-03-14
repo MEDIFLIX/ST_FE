@@ -1,5 +1,7 @@
+import { CenterContainer } from '../../styles/GlobalStyle';
+
 const Login = () => {
-  return <div>Login</div>;
+  return <CenterContainer>Login</CenterContainer>;
 };
 
 export default Login;

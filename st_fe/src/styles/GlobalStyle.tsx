@@ -51,3 +51,7 @@ export const FlexContainer = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
+
+export const CenterContainer = styled(FlexContainer)`
+  height: 100vh;
+`;
