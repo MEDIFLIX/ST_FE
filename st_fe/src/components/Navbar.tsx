@@ -5,7 +5,7 @@ const NavBarContainer = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  width: 87vw;
+  width: 90vw;
   height: 70px;
   background-color: #ffffff;
   justify-content: space-between;
