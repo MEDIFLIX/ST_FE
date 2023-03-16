@@ -13,7 +13,7 @@ const SideBarContainer = styled(FlexContainer)`
   width: 10vw;
   height: 100vh;
   background-color: #303030;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 
   .SideContent {
