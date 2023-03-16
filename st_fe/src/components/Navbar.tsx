@@ -1,12 +1,11 @@
 import { Button } from '@mui/material';
 import styled from 'styled-components';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
-import { height, width } from '@mui/system';
 
 const NavBarContainer = styled.div`
   display: flex;
   position: absolute;
-  right: 0;
+  left: 10vw;
   top: 0;
   width: 90vw;
   height: 70px;
@@ -28,7 +27,6 @@ const NavBarContainer = styled.div`
     width: 37px;
     height: 37px;
     border-radius: 50%;
-    border: 1px solid black;
   }
 
   .nameBox {
@@ -43,7 +41,9 @@ const NavBarContainer = styled.div`
     font-size: 15px;
   }
 
-=
+  .logo {
+    margin-left: 10px;
+  }
 `;
 
 const ExitIcon = styled.div`
@@ -58,7 +58,7 @@ const ExitIcon = styled.div`
 const NavBar = () => {
   return (
     <NavBarContainer>
-      <img src="/img/logo.svg" />
+      <img src="/img/logo.svg" className="logo" />
       <div className="contentContainer">
         <span className="nameBox">
           <div className="round"></div>
