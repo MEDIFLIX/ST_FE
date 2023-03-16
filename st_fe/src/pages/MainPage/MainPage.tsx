@@ -50,6 +50,10 @@ const ContentBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  .chartWrap {
+    width: 350px;
+    height: 310px;
+  }
 `;
 
 const ContentGridBox = styled.div`
@@ -67,6 +71,7 @@ const ContentGridBox = styled.div`
     'weekContent weekContent weekContent diagram diagram';
 
   grid-template-rows: 330px 233px 226px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
   .grid-chart {
     grid-area: chart;
@@ -101,7 +106,9 @@ const MainPage = () => {
           <Title>Mediflix DashBoard</Title>
           <ContentGridBox>
             <ContentBox className={'grid-chart'}>
-              <LineChart />
+              <div className="chartWrap">
+                <LineChart />
+              </div>
             </ContentBox>
             <ContentBox className={'grid-analysis'}>analysis</ContentBox>
             <ContentBox className={'grid-graph'}>graph</ContentBox>

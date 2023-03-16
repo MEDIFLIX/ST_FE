@@ -8,42 +8,72 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+);
 
 export const options = {
   responsive: true,
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      grid: {
+        display: true,
+      },
+    },
+  },
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       position: 'top' as const,
+      // labels: {
+      //   usePointStyle: true,
+      // },
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: '방문자 현황',
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['03.16', '03.17', '03.18', '03.19', '03.20', '03.21', '03.22'];
 
 export const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
+      label: '신규 가입자 수',
       fill: true,
-      data: [4, 5, 1, 3, 4, 5, 6, 7],
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      data: [20, 80, 60, 140, 100, 50, 60, 70],
+      borderColor: '#D17777',
+      backgroundColor: 'rgba(227,30,38,0.2)',
+      borderWidth: 0.5,
+      pointRadius: 2,
     },
     {
-      label: 'Dataset 2',
+      label: '방문자 수',
       fill: true,
-      data: [1, 7, 2, 6, 5, 6, 3],
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      data: [40, 70, 20, 160, 50, 60, 30],
+      borderColor: '#8C8FEC',
+      backgroundColor: 'rgba(8,98,217,0.28)',
+      borderWidth: 0.5,
+      pointRadius: 2,
     },
   ],
 };
