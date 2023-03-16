@@ -1,3 +1,4 @@
+import LineChart from './components/LineChart';
 import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
@@ -99,7 +100,9 @@ const MainPage = () => {
         <DashContainer>
           <Title>Mediflix DashBoard</Title>
           <ContentGridBox>
-            <ContentBox className={'grid-chart'}>chart</ContentBox>
+            <ContentBox className={'grid-chart'}>
+              <LineChart />
+            </ContentBox>
             <ContentBox className={'grid-analysis'}>analysis</ContentBox>
             <ContentBox className={'grid-graph'}>graph</ContentBox>
             <ContentBox className={'grid-item1'}>item1</ContentBox>
