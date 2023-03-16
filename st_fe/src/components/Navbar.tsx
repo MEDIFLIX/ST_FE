@@ -1,4 +1,7 @@
+import { Button } from '@mui/material';
 import styled from 'styled-components';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import { height, width } from '@mui/system';
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -9,37 +12,67 @@ const NavBarContainer = styled.div`
   height: 70px;
   background-color: #ffffff;
   justify-content: space-between;
-  border: 1px solid black;
   align-items: center;
 
   .contentContainer {
     display: flex;
     width: 20vw;
-    justify-content: space-evenly;
+    height: 100%;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
   }
+
+  .round {
+    background-color: #d9d9d9;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+
+  .nameBox {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 14px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+
+=
 `;
 
-const NavButton = styled.button`
-  all: unset;
-  border: 1px solid #d9d9d9;
-  background-color: FFFFFF;
-  padding: 10px;
-`;
-
-const Logo = styled.div`
-  margin-left: 20px;
+const ExitIcon = styled.div`
+  background-color: #e31e26;
+  width: 62px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const NavBar = () => {
   return (
     <NavBarContainer>
-      <Logo>메디플릭스</Logo>
+      <img src="/img/logo.svg" />
       <div className="contentContainer">
-        <div>김땡땡</div>
-        <NavButton>미리보기</NavButton>
-        <div>exit</div>
+        <span className="nameBox">
+          <div className="round"></div>
+          <div className="name">김땡땡</div>
+        </span>
+        <Button
+          variant="text"
+          sx={{ color: 'black', border: '1px solid #D9D9D9', width: '87px', height: '32px' }}
+        >
+          미리보기
+        </Button>
+        <ExitIcon>
+          <PowerSettingsNewIcon sx={{ color: 'white', fontSize: '40px' }} />
+        </ExitIcon>
       </div>
     </NavBarContainer>
   );
