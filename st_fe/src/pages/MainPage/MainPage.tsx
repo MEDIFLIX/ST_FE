@@ -33,8 +33,8 @@ const MemoContainer = styled.section`
 const Title = styled.div`
   color: #e31e26;
   font-size: 25px;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 28px;
+  margin-left: 32px;
   height: 50px;
 `;
 
@@ -55,8 +55,8 @@ const ContentGridBox = styled.div`
   display: grid;
   position: relative;
   height: calc(100% - 96px);
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 32px;
+  margin-right: 32px;
   margin-bottom: 26px;
   grid-gap: 16px;
 
