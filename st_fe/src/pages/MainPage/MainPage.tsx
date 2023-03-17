@@ -4,6 +4,7 @@ import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import Analysis from './components/Analysis';
 import BarChart from './components/BarChart';
+import ListItems from './components/ListItems';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -117,8 +118,12 @@ const MainPage = () => {
             <ContentBox className={'grid-graph'}>
               <BarChart />
             </ContentBox>
-            <ContentBox className={'grid-item1'}>item1</ContentBox>
-            <ContentBox className={'grid-item2'}>item2</ContentBox>
+            <ContentBox className={'grid-item1'}>
+              <ListItems />
+            </ContentBox>
+            <ContentBox className={'grid-item2'}>
+              <ListItems />
+            </ContentBox>
             <ContentBox className={'grid-content'}>content</ContentBox>
             <ContentBox className={'grid-diagram'}>diagram</ContentBox>
           </ContentGridBox>
