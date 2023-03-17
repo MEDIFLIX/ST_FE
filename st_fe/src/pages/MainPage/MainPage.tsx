@@ -2,6 +2,7 @@ import LineChart from './components/LineChart';
 import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
+import Analysis from './components/Analysis';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -47,6 +48,7 @@ const Title = styled.div`
 const ContentBox = styled.div`
   background-color: #ffffff;
   border: 7px solid #d6cece;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +112,9 @@ const MainPage = () => {
                 <LineChart />
               </div>
             </ContentBox>
-            <ContentBox className={'grid-analysis'}>analysis</ContentBox>
+            <ContentBox className={'grid-analysis'}>
+              <Analysis />
+            </ContentBox>
             <ContentBox className={'grid-graph'}>graph</ContentBox>
             <ContentBox className={'grid-item1'}>item1</ContentBox>
             <ContentBox className={'grid-item2'}>item2</ContentBox>
