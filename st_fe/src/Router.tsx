@@ -5,6 +5,7 @@ import Spinner from './components/Spinner';
 import Login from './pages/Login/Login';
 import MainPage from './pages/MainPage/MainPage';
 import NotFound from './pages/NotFound/NotFound';
+import Original from './pages/Original/Original';
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/main" element={<MainPage />} />
+            <Route path="/original" element={<Original />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
