@@ -8,6 +8,7 @@ import BarChart from './components/BarChart';
 const MainContainer = styled.div`
   width: 100vw;
   height: 954px;
+  min-height: calc(100vh - 70px);
   background-color: white;
   position: relative;
 `;
@@ -20,6 +21,7 @@ const ContentContainer = styled.div`
   width: 90vw;
   background-color: #e7e7e7;
   height: 100%;
+  min-height: calc(100vh-70px);
 `;
 
 const DashContainer = styled.section`
