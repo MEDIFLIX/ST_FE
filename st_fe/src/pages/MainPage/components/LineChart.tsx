@@ -11,6 +11,7 @@ import {
   Filler,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import styled from 'styled-components';
 
 ChartJS.register(
   CategoryScale,
@@ -23,7 +24,7 @@ ChartJS.register(
   Filler,
 );
 
-const options = {
+const LineChartOptions = {
   responsive: true,
   scales: {
     x: {
@@ -40,19 +41,61 @@ const options = {
   maintainAspectRatio: false,
   plugins: {
     legend: {
+      display: false,
       position: 'top' as const,
       // labels: {
       //   usePointStyle: true,
       // },
     },
     title: {
-      display: true,
+      display: false,
       text: '방문자 현황',
     },
   },
 };
 
-function LineChart() {
+const LineChartContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: inherit;
+  height: 330px;
+  margin-top: 10px;
+
+  .lineChart_title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .chartWrap {
+    width: 350px;
+    height: 200px;
+  }
+
+  .legendBox {
+    font-size: 8px;
+    display: flex;
+    margin-bottom: 7px;
+  }
+
+  .lineChart_newPeople {
+    background-color: #f9d2d4;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 3px;
+  }
+
+  .lineChart_newVisit {
+    background-color: #c5d7f9;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 3px;
+  }
+`;
+
+const LineChart = () => {
   const labels = ['03.16', '03.17', '03.18', '03.19', '03.20', '03.21', '03.22'];
 
   const data = {
@@ -79,7 +122,24 @@ function LineChart() {
     ],
   };
 
-  return <Line options={options} data={data} />;
-}
+  return (
+    <LineChartContainer>
+      <div className="lineChart_title">방문자 현황</div>
+      <div>
+        <div className="legendBox">
+          <div className="lineChart_newPeople" />
+          <div>신규 가입자 수</div>
+        </div>
+        <div className="legendBox">
+          <div className="lineChart_newVisit" />
+          <div>방문자 수</div>
+        </div>
+      </div>
+      <div className="chartWrap">
+        <Line options={LineChartOptions} data={data} />
+      </div>
+    </LineChartContainer>
+  );
+};
 
 export default LineChart;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import Analysis from './components/Analysis';
+import BarChart from './components/BarChart';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -52,10 +53,8 @@ const ContentBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  .chartWrap {
-    width: 350px;
-    height: 310px;
-  }
+  width: inherit;
+  position: relative;
 `;
 
 const ContentGridBox = styled.div`
@@ -108,14 +107,14 @@ const MainPage = () => {
           <Title>Mediflix DashBoard</Title>
           <ContentGridBox>
             <ContentBox className={'grid-chart'}>
-              <div className="chartWrap">
-                <LineChart />
-              </div>
+              <LineChart />
             </ContentBox>
             <ContentBox className={'grid-analysis'}>
               <Analysis />
             </ContentBox>
-            <ContentBox className={'grid-graph'}>graph</ContentBox>
+            <ContentBox className={'grid-graph'}>
+              <BarChart />
+            </ContentBox>
             <ContentBox className={'grid-item1'}>item1</ContentBox>
             <ContentBox className={'grid-item2'}>item2</ContentBox>
             <ContentBox className={'grid-content'}>content</ContentBox>
