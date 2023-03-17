@@ -6,6 +6,7 @@ import Analysis from './components/Analysis';
 import BarChart from './components/BarChart';
 import ListItems from './components/ListItems';
 import ContentList from './components/ContentList';
+import PieChart from './components/PieChart';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -128,7 +129,9 @@ const MainPage = () => {
             <ContentBox className={'grid-content'}>
               <ContentList />
             </ContentBox>
-            <ContentBox className={'grid-diagram'}>diagram</ContentBox>
+            <ContentBox className={'grid-diagram'}>
+              <PieChart />
+            </ContentBox>
           </ContentGridBox>
         </DashContainer>
         <MemoContainer></MemoContainer>
