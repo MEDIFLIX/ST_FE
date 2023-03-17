@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 
-
-
 const MainContainer = styled.div`
   width: 100vw;
   height: 954px;
@@ -102,33 +100,31 @@ const ContentBox = styled.div`
   }
 `;
 
-
-
 const Original = () => {
-    return(
-        <MainContainer>
-            <NavBar />
-            <SideBar />
-            <ContentContainer>
-                <DashContainer>
-                <Title>Mediflix DashBoard</Title>
-                <ContentGridBox>
-                    <ContentBox className={'grid-totalView'}>totalView</ContentBox>
-                    <ContentBox className={'grid-totalPlay'}>totalPlay</ContentBox>
-                    <ContentBox className={'grid-maxView'}>maxView</ContentBox>
-                    <ContentBox className={'grid-todayVisit'}>todayVisit</ContentBox>
-                    <ContentBox className={'grid-totalVisit'}>totalVisit</ContentBox>
-                    <ContentBox className={'grid-contentsRanking'}>contentsRanking</ContentBox>
-                    <ContentBox className={'grid-userAnalysis'}>userAnalysis</ContentBox>
-                    <ContentBox className={'grid-popularContents'}>popularContents</ContentBox>
-                    <ContentBox className={'grid-popularSearch'}>popularSearch</ContentBox>
-                    <ContentBox className={'grid-contentsSearch'}>contentsSearch</ContentBox>
-                </ContentGridBox>
-            </DashContainer>
-            <MemoContainer></MemoContainer>
-            </ContentContainer>
-        </MainContainer>
-    );
-}
+  return (
+    <MainContainer>
+      <NavBar />
+      <SideBar />
+      <ContentContainer>
+        <DashContainer>
+          <Title>Mediflix DashBoard</Title>
+          <ContentGridBox>
+            <ContentBox className={'grid-totalView'}>totalView</ContentBox>
+            <ContentBox className={'grid-totalPlay'}>totalPlay</ContentBox>
+            <ContentBox className={'grid-maxView'}>maxView</ContentBox>
+            <ContentBox className={'grid-todayVisit'}>todayVisit</ContentBox>
+            <ContentBox className={'grid-totalVisit'}>totalVisit</ContentBox>
+            <ContentBox className={'grid-contentsRanking'}>contentsRanking</ContentBox>
+            <ContentBox className={'grid-userAnalysis'}>userAnalysis</ContentBox>
+            <ContentBox className={'grid-popularContents'}>popularContents</ContentBox>
+            <ContentBox className={'grid-popularSearch'}>popularSearch</ContentBox>
+            <ContentBox className={'grid-contentsSearch'}>contentsSearch</ContentBox>
+          </ContentGridBox>
+        </DashContainer>
+        <MemoContainer></MemoContainer>
+      </ContentContainer>
+    </MainContainer>
+  );
+};
 
 export default Original;

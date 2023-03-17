@@ -104,7 +104,7 @@ const LineChart = () => {
       {
         label: '신규 가입자 수',
         fill: true,
-        data: [20, 80, 60, 140, 100, 50, 60, 70],
+        data: [20, 120, 60, 140, 100, 50, 70],
         borderColor: '#D17777',
         backgroundColor: 'rgba(227,30,38,0.2)',
         borderWidth: 0.5,
@@ -113,7 +113,7 @@ const LineChart = () => {
       {
         label: '방문자 수',
         fill: true,
-        data: [40, 70, 20, 160, 50, 60, 30],
+        data: [40, 140, 80, 160, 50, 60, 30],
         borderColor: '#8C8FEC',
         backgroundColor: 'rgba(8,98,217,0.28)',
         borderWidth: 0.5,

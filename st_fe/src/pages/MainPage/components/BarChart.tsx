@@ -10,7 +10,6 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import styled from 'styled-components';
-import { ListItemButton, ListItemText } from '@mui/material';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
