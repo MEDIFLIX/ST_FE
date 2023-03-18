@@ -119,33 +119,33 @@ const StatusContainer = styled.div`
 
 const MessageContainer = styled.div`
   display: absolute;
-  background-color: #FFFFFF;
-  border-color: #E31E26;
-  border-style:solid;
-  border-width: 0px 0px 10px 0px;
-  border-radius: 5%;    
-  margin: 10px;
-  padding: 10px;    
-  height: 30%
-`;
-
-const MemoBox = styled.div`
-  display: absolute;
-  background-color: #FFFFFF;
-  border-color: #E31E26;
-  border-style:solid;
+  background-color: #ffffff;
+  border-color: #e31e26;
+  border-style: solid;
   border-width: 0px 0px 10px 0px;
   border-radius: 5%;
   margin: 10px;
   padding: 10px;
-  height: 30%
+  height: 30%;
+`;
+
+const MemoBox = styled.div`
+  display: absolute;
+  background-color: #ffffff;
+  border-color: #e31e26;
+  border-style: solid;
+  border-width: 0px 0px 10px 0px;
+  border-radius: 5%;
+  margin: 10px;
+  padding: 10px;
+  height: 30%;
 `;
 
 const MainPage = () => {
   return (
     <MainContainer>
       <NavBar />
-      <SideBar />
+      <SideBar isDash={true} />
       <ContentContainer>
         <DashContainer>
           <Title>Mediflix DashBoard</Title>
@@ -175,8 +175,8 @@ const MainPage = () => {
         </DashContainer>
         <MemoContainer>
           <StatusContainer>
-            <SearchBar/>
-            <UserList/>
+            <SearchBar />
+            <UserList />
           </StatusContainer>
           <MessageContainer>
             <Message></Message>

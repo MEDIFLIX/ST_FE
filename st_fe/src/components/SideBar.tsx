@@ -6,6 +6,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import MovieCreationOutlinedIcon from '@mui/icons-material/MovieCreationOutlined';
+import { useNavigate } from 'react-router';
 
 const SideBarContainer = styled(FlexContainer)`
   position: absolute;
@@ -40,17 +41,43 @@ const SideBarContainer = styled(FlexContainer)`
   }
 `;
 
-const SideBar = () => {
+interface SideBarProps {
+  isDash: boolean;
+}
+
+const SideBar = ({ isDash }: SideBarProps) => {
+  const navigate = useNavigate();
+
+  const handleDashBtn = () => {
+    navigate(`/main`);
+  };
+
+  const handleContentBtn = () => {
+    navigate(`/original`);
+  };
+
   return (
     <SideBarContainer>
       <div className="SideContent">
-        <Button
-          variant="outlined"
-          startIcon={<HomeIcon />}
-          sx={{ color: 'white', border: 'none', fontSize: '13px' }}
-        >
-          대시보드
-        </Button>
+        {isDash ? (
+          <Button
+            variant="outlined"
+            startIcon={<HomeIcon />}
+            sx={{ color: 'red', border: 'none', fontSize: '13px' }}
+            onClick={handleDashBtn}
+          >
+            대시보드
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            startIcon={<HomeIcon />}
+            sx={{ color: 'white', border: 'none', fontSize: '13px' }}
+            onClick={handleDashBtn}
+          >
+            대시보드
+          </Button>
+        )}
         <Button
           variant="outlined"
           startIcon={<PermIdentityIcon />}
@@ -58,13 +85,25 @@ const SideBar = () => {
         >
           사용자 관리
         </Button>
-        <Button
-          variant="outlined"
-          startIcon={<MovieCreationOutlinedIcon />}
-          sx={{ color: 'white', border: 'none', fontSize: '13px' }}
-        >
-          콘텐츠 관리
-        </Button>
+        {isDash ? (
+          <Button
+            variant="outlined"
+            startIcon={<MovieCreationOutlinedIcon />}
+            sx={{ color: 'white', border: 'none', fontSize: '13px' }}
+            onClick={handleContentBtn}
+          >
+            콘텐츠 관리
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            startIcon={<MovieCreationOutlinedIcon />}
+            sx={{ color: 'red', border: 'none', fontSize: '13px' }}
+            onClick={handleContentBtn}
+          >
+            콘텐츠 관리
+          </Button>
+        )}
       </div>
       <div className="SideOption">
         <Button

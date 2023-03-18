@@ -104,7 +104,7 @@ const Original = () => {
   return (
     <MainContainer>
       <NavBar />
-      <SideBar />
+      <SideBar isDash={false} />
       <ContentContainer>
         <DashContainer>
           <Title>Mediflix DashBoard</Title>
