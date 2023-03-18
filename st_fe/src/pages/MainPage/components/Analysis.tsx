@@ -44,14 +44,18 @@ const DateContainer = styled.div`
   margin-top: 14px;
 `;
 
-const Date = styled.button`
+type DateProps = {
+  backgroundColor: string;
+};
+
+const Date = styled.button<DateProps>`
   width: 45px;
   height: 47px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #f9e5e5;
+  background-color: ${(props) => props.backgroundColor};
   border-radius: 10px;
   cursor: pointer;
   border: none;
@@ -105,16 +109,22 @@ const ContentBox = styled.div`
   }
 `;
 
+type DateInfo = {
+  day: string;
+  date: number;
+  clicked: boolean;
+};
+
 const Analysis = () => {
-  const dateInfo = [
-    { day: 'Mon', date: 19 },
-    { day: 'Tue', date: 20 },
-    { day: 'Wed', date: 21 },
-    { day: 'Thu', date: 22 },
-    { day: 'Fri', date: 23 },
-    { day: 'Sat', date: 24 },
-    { day: 'Sun', date: 25 },
-  ];
+  const [dateInfo, setDateInfo] = useState<DateInfo[]>([
+    { day: 'Mon', date: 19, clicked: true },
+    { day: 'Tue', date: 20, clicked: false },
+    { day: 'Wed', date: 21, clicked: false },
+    { day: 'Thu', date: 22, clicked: false },
+    { day: 'Fri', date: 23, clicked: false },
+    { day: 'Sat', date: 24, clicked: false },
+    { day: 'Sun', date: 25, clicked: false },
+  ]);
 
   const content = [
     { title: '총 방문자 수', people: 25 },
@@ -122,6 +132,22 @@ const Analysis = () => {
     { title: '누적 콘텐츠 조회수', people: 25 },
     { title: '탈퇴 회원 수', people: 25 },
   ];
+
+  const handleDateBtn = (e: React.MouseEvent) => {
+    const id = e.currentTarget.id;
+
+    console.log(id);
+
+    setDateInfo((current) => {
+      const newDateInfo = current.map(({ day, date, clicked }) => {
+        if (day === id) {
+          return { day, date, clicked: true };
+        } else return { day, date, clicked: false };
+      });
+
+      return newDateInfo;
+    });
+  };
 
   return (
     <AnalysisContainer>
@@ -131,12 +157,19 @@ const Analysis = () => {
         <div>March 2023</div>
       </Bar>
       <DateContainer>
-        {dateInfo.map(({ day, date }) => (
-          <Date>
-            <div className="day">{day}</div>
-            <div className="date">{date}</div>
-          </Date>
-        ))}
+        {dateInfo.map(({ day, date, clicked }) =>
+          clicked ? (
+            <Date backgroundColor="#E1ACAC" onClick={handleDateBtn} id={day} key={day}>
+              <div className="day">{day}</div>
+              <div className="date">{date}</div>
+            </Date>
+          ) : (
+            <Date backgroundColor="#F9E5E5" onClick={handleDateBtn} id={day} key={day}>
+              <div className="day">{day}</div>
+              <div className="date">{date}</div>
+            </Date>
+          ),
+        )}
       </DateContainer>
       <ContentContainer>
         {content.map(({ title, people }) => (
