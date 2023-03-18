@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import Analysis from './components/Analysis';
+import BarChart from './components/BarChart';
+import ListItems from './components/ListItems';
+import ContentList from './components/ContentList';
+import PieChart from './components/PieChart';
+import SearchBar from './components/SearchBar';
+import UserList from './components/UserList';
+import Message from './components/Message';
+import Memo from './components/Memo';
 
 const MainContainer = styled.div`
   width: 100vw;
