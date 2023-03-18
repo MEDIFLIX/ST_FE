@@ -18,9 +18,45 @@ const PieChartContainer = styled.div`
     margin: 10px 0px;
   }
 
+  .pieChart_box {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
   .pie_wrap {
     width: 170px;
     height: 170px;
+    display: flex;
+  }
+
+  .legendContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .legendBox:nth-of-type(1) > span {
+      background-color: #edd2d1;
+    }
+    .legendBox:nth-of-type(2) > span {
+      background-color: #ea5250;
+    }
+    .legendBox:nth-of-type(3) > span {
+      background-color: #5e0807;
+    }
+    .legendBox:nth-of-type(4) > span {
+      background-color: #a8110f;
+    }
+  }
+
+  .legendBox {
+    display: flex;
+
+    .legendLabel {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      margin-right: 3px;
+    }
   }
 `;
 
@@ -73,12 +109,7 @@ const PieChart = () => {
       {
         label: '# of Votes',
         data: [610, 517, 782, 748],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-        ],
+        backgroundColor: ['#EDD2D1', '#EA5250', '#5E0807', '#A8110F'],
         borderColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
@@ -90,11 +121,23 @@ const PieChart = () => {
     ],
   };
 
+  const labelData = ['키워드 검색', '인스타그램', '페이스 북', '기타'];
+
   return (
     <PieChartContainer>
       <div className="pieChart_title">유입 현황 분석</div>
-      <div className="pie_wrap">
-        <Pie data={data} options={options} />
+      <div className="pieChart_box">
+        <div className="pie_wrap">
+          <Pie data={data} options={options} />
+        </div>
+        <div className="legendContainer">
+          {labelData.map((val, idx) => (
+            <div className="legendBox">
+              <span className="legendLabel"></span>
+              <div>{val}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </PieChartContainer>
   );
