@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import Analysis from './components/Analysis';
+import SearchBar from './components/SearchBar';
+import UserList from './components/UserList';
+import Memo from './components/Memo';
+import Message from './components/Message';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -98,6 +102,41 @@ const ContentGridBox = styled.div`
   }
 `;
 
+//
+const StatusContainer = styled.div`
+    display: absolute;
+    flex-direction: column
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    height: 30%
+`;
+
+const MessageContainer = styled.div`
+  display: absolute;
+  background-color: #FFFFFF;
+  border-color: #E31E26;
+  border-style:solid;
+  border-width: 0px 0px 10px 0px;
+  border-radius: 5%;    
+  margin: 10px;
+  padding: 10px;    
+  height: 30%
+`;
+
+const MemoBox = styled.div`
+  display: absolute;
+  background-color: #FFFFFF;
+  border-color: #E31E26;
+  border-style:solid;
+  border-width: 0px 0px 10px 0px;
+  border-radius: 5%;
+  margin: 10px;
+  padding: 10px;
+  height: 30%
+`;
+
 const MainPage = () => {
   return (
     <MainContainer>
@@ -122,7 +161,18 @@ const MainPage = () => {
             <ContentBox className={'grid-diagram'}>diagram</ContentBox>
           </ContentGridBox>
         </DashContainer>
-        <MemoContainer></MemoContainer>
+        <MemoContainer>
+          <StatusContainer>
+            <SearchBar/>
+            <UserList/>
+          </StatusContainer>
+          <MessageContainer>
+            <Message></Message>
+          </MessageContainer>
+          <MemoBox>
+            <Memo></Memo>
+          </MemoBox>
+        </MemoContainer>
       </ContentContainer>
     </MainContainer>
   );
