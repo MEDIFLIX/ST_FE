@@ -7,9 +7,7 @@ import BarChart from './components/BarChart';
 import ListItems from './components/ListItems';
 import ContentList from './components/ContentList';
 import PieChart from './components/PieChart';
-import SearchBar from './components/SearchBar';
 import UserList from './components/UserList';
-import Message from './components/Message';
 import Memo from './components/Memo';
 import MessageList from './components/\bMessageList';
 
@@ -115,7 +113,7 @@ const StatusContainer = styled.div`
     margin: 10px;
     padding: 10px;
     background-color: #FFFFFF;
-    height: 30%
+    height: auto
 `;
 
 const MessageContainer = styled.div`
@@ -126,8 +124,9 @@ const MessageContainer = styled.div`
   border-width: 0px 0px 10px 0px;
   border-radius: 5%;    
   margin: 10px;
-  padding: 10px;    
-  height: 30%
+  padding: 10px; 
+  min-height: 300px;   
+  height: auto;
 `;
 
 const MemoBox = styled.div`
@@ -139,7 +138,7 @@ const MemoBox = styled.div`
   border-radius: 5%;
   margin: 10px;
   padding: 10px;
-  height: 30%
+  height: auto;
 `;
 
 const MainPage = () => {
@@ -176,7 +175,6 @@ const MainPage = () => {
         </DashContainer>
         <MemoContainer>
           <StatusContainer>
-            <SearchBar/>
             <UserList/>
           </StatusContainer>
           <MessageContainer>
