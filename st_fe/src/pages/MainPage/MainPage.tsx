@@ -11,6 +11,7 @@ import SearchBar from './components/SearchBar';
 import UserList from './components/UserList';
 import Message from './components/Message';
 import Memo from './components/Memo';
+import MessageList from './components/\bMessageList';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -179,7 +180,7 @@ const MainPage = () => {
             <UserList/>
           </StatusContainer>
           <MessageContainer>
-            <Message></Message>
+            <MessageList></MessageList>
           </MessageContainer>
           <MemoBox>
             <Memo></Memo>
