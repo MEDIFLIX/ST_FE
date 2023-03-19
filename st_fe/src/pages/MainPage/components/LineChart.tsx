@@ -58,7 +58,8 @@ const LineChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: inherit;
+  align-self: center;
+  width: 95%;
   height: 330px;
   margin-top: 10px;
 
@@ -69,6 +70,7 @@ const LineChartContainer = styled.div`
 
   .chartWrap {
     width: 350px;
+    min-width: 100%;
     height: 200px;
   }
 
