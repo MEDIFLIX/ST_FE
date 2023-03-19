@@ -1,43 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import User from './User'
 import Pagination from '@mui/material/Pagination';
-import CircleIcon from '@mui/icons-material/Circle';
-import PaginationItem from '@mui/material/PaginationItem';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
-
-
-// 자식컴포넌트로 넘겨주기위해 export해 줍시다.
 export type UserType = {
   id: number
   name: string
   role: string
 }
 
-export type PageType = {
-  total: number
-  limit: number
-  page: number
-
-}
-
-
-
 export default function UserList(): React.ReactElement {
-  const [limit, setLimit] = useState(3);
-  const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
-  const [input, setInput] = useState('');
-
-  const handleChangeInput = (event:any) =>{
-    setInput(event.target.value);
-  }
-
-  // userList Array state에 제네릭 타입을 지정해 줍니다.
   const [userList, setUserList] = useState<UserType[]>([
     {
       id: 0,
@@ -84,49 +60,72 @@ export default function UserList(): React.ReactElement {
   ]);
 
 
-  const searched = userList.filter((item) =>
-    item.name.includes(input)
-  );
+  // limit: 페이지 당 띄울 Card 개수
+  const [limit, setLimit] = useState(3);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
+  const LAST_PAGE = Math.ceil(userList.length / limit);
+
+  const [input, setInput] = useState('');
+
+  const handleChangeInput = (event: any) => {
+    setInput(event.target.value);
+  }
+
+  const [curUserList, setCurUserList] = useState(userList);
+
+  useEffect(() => {
+    if(page === LAST_PAGE){ 
+      setCurUserList(userList.slice(limit * (page - 1)));
+    } else {
+      setCurUserList(userList.slice(limit * (page - 1), limit * (page - 1) + limit));
+    }  
+  }, [page]);
+
+  const handlePage = (event:any) => {
+    const nowPageInt = parseInt(event.target.outerText);
+    setPage(nowPageInt);
+  }
+
+  useEffect(()=>{
+    if(page == LAST_PAGE){
+      setCurUserList(userList.filter((item) => item.name.includes(input)).slice(limit * (page - 1)));
+    }else {
+      setCurUserList(userList.filter((item) => item.name.includes(input)).slice(limit * (page - 1), limit * (page - 1) + limit));
+    }  
+  },[input]);
 
   return (
     <div>
       <Box sx={{ display: 'flex', alignItems: 'flex-end', maxWidth: '100%', flex: 1, margin: "10px" }}>
-      <TextField
-        fullWidth
-        id="outlined-basic"
-        placeholder='관리자를 검색하세요.'
-        type="search"
-        variant="outlined"
-        onChange={handleChangeInput}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <Search />
-            </InputAdornment>
-          ),
-        }}
-      />
-    </Box>
+        <TextField
+          fullWidth
+          id="outlined-basic"
+          placeholder='관리자를 검색하세요.'
+          type="search"
+          variant="outlined"
+          onChange={handleChangeInput}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Box>
       
-      {searched.slice(offset, offset+limit).map(user=> <User key={user.id} user={user}/>)}
+      {curUserList.map(user => <User key={user.id} user={user} />)}
       
-      <div style={{ margin: "auto" }}>
-
-      </div>
       <Stack alignItems="center">
         <Pagination
-          count={offset + limit}
+          count={3}
+          defaultPage = {1}
           hidePrevButton hideNextButton
           size='small'
-          renderItem={(item) => (
-            <PaginationItem
-
-              {...item}
-            />
-          )} />
+          onChange={handlePage}
+          />
       </Stack>
-
-      {/* {userList.map(user => <User key={user.id} user={user}/>)} */}
     </div>
   )
 }
