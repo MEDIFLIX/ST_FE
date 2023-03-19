@@ -111,10 +111,20 @@ const WhiteBox = styled.div`
     font-weight: bold;
     margin-top: 25px;
   }
+
+  .label_container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    align-items: center;
+    justify-content: space-around;
+  }
 `;
 
 const Original = () => {
-  const data = ['암투병1', '암투병2', '암투병3', '암투병4'];
+  const label = ['암투병1', '암투병2', '암투병3', '암투병4'];
 
   return (
     <MainContainer>
@@ -141,7 +151,14 @@ const Original = () => {
               <div className="content_value">이대 병원</div>
             </WhiteBox>
             <WhiteBox className={'grid-contentsRanking'}>contentsRanking</WhiteBox>
-            <WhiteBox className={'grid-userAnalysis'}>userAnalysis</WhiteBox>
+            <WhiteBox className={'grid-userAnalysis'}>
+              <div className="content_title">주간 인기 검색어</div>
+              <div className="label_container">
+                {label.map((value, idx) => (
+                  <div>{`${idx + 1}. ${value}`}</div>
+                ))}
+              </div>
+            </WhiteBox>
             <WhiteBox className={'grid-popularContents'}>
               <PieChart title="관리 주간 그래프" pieWidth="100px" pieHeight="110px" />
             </WhiteBox>
