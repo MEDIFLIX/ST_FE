@@ -62,7 +62,7 @@ const ContentBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: inherit;
+  width: 100%;
   position: relative;
 `;
 
@@ -169,7 +169,7 @@ const MainPage = () => {
               <ContentList />
             </ContentBox>
             <ContentBox className={'grid-diagram'}>
-              <PieChart />
+              <PieChart title="유입 현황 분석" pieWidth="170px" pieHeight="170px" />
             </ContentBox>
           </ContentGridBox>
         </DashContainer>

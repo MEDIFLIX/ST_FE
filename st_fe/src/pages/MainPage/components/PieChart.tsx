@@ -23,12 +23,6 @@ const PieChartContainer = styled.div`
     justify-content: space-evenly;
   }
 
-  .pie_wrap {
-    width: 170px;
-    height: 170px;
-    display: flex;
-  }
-
   .legendContainer {
     display: flex;
     flex-direction: column;
@@ -58,6 +52,17 @@ const PieChartContainer = styled.div`
       margin-right: 3px;
     }
   }
+`;
+
+type PieWrapType = {
+  width: string;
+  height: string;
+};
+
+const PieWrap = styled.div<PieWrapType>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  display: flex;
 `;
 
 const options = {
@@ -102,7 +107,13 @@ const options = {
   },
 };
 
-const PieChart = () => {
+interface IPieChart {
+  title: string;
+  pieWidth: string;
+  pieHeight: string;
+}
+
+const PieChart = ({ title, pieWidth, pieHeight }: IPieChart) => {
   const data = {
     labels: ['Red', 'Blue', 'Yellow', 'Green'],
     datasets: [
@@ -125,11 +136,11 @@ const PieChart = () => {
 
   return (
     <PieChartContainer>
-      <div className="pieChart_title">유입 현황 분석</div>
+      <div className="pieChart_title">{title}</div>
       <div className="pieChart_box">
-        <div className="pie_wrap">
+        <PieWrap width={pieWidth} height={pieHeight}>
           <Pie data={data} options={options} />
-        </div>
+        </PieWrap>
         <div className="legendContainer">
           {labelData.map((val, idx) => (
             <div className="legendBox">

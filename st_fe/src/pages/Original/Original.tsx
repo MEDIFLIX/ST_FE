@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
+import PieChart from '../MainPage/components/PieChart';
 
 const MainContainer = styled.div`
   width: 100vw;
   height: 954px;
+  min-height: calc(100vh - 70px);
   background-color: white;
   position: relative;
 `;
@@ -48,13 +50,13 @@ const ContentGridBox = styled.div`
   grid-gap: 16px;
 
   grid-template-areas:
-    'totalView totalPlay maxView todayVisit totalVisit'
-    'contentsRanking contentsRanking contentsRanking userAnalysis userAnalysis'
-    'popularContents popularContents popularContents popularContents popularSearch'
-    'contentsSearch contentsSearch contentsSearch contentsSearch contentsSearch';
+    'totalView totalPlay maxView todayVisit'
+    'contentsRanking contentsRanking contentsRanking userAnalysis'
+    'contentsRanking contentsRanking contentsRanking popularContents'
+    'contentsSearch contentsSearch contentsSearch contentsSearch ';
 
-  grid-template-rows: 1fr 2fr 2fr 4fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2.4fr 2.4fr 6fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   .grid-totalView {
     grid-area: totalView;
@@ -88,19 +90,32 @@ const ContentGridBox = styled.div`
   }
 `;
 
-const ContentBox = styled.div`
+const WhiteBox = styled.div`
   background-color: #ffffff;
-  border: 7px solid #d6cece;
+  border-radius: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
-  .chartWrap {
-    width: 350px;
-    height: 310px;
+  position: relative;
+
+  .content_title {
+    font-size: 15px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    margin-bottom: px;
+  }
+
+  .content_value {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 25px;
   }
 `;
 
 const Original = () => {
+  const data = ['암투병1', '암투병2', '암투병3', '암투병4'];
+
   return (
     <MainContainer>
       <NavBar />
@@ -109,16 +124,28 @@ const Original = () => {
         <DashContainer>
           <Title>Mediflix DashBoard</Title>
           <ContentGridBox>
-            <ContentBox className={'grid-totalView'}>totalView</ContentBox>
-            <ContentBox className={'grid-totalPlay'}>totalPlay</ContentBox>
-            <ContentBox className={'grid-maxView'}>maxView</ContentBox>
-            <ContentBox className={'grid-todayVisit'}>todayVisit</ContentBox>
-            <ContentBox className={'grid-totalVisit'}>totalVisit</ContentBox>
-            <ContentBox className={'grid-contentsRanking'}>contentsRanking</ContentBox>
-            <ContentBox className={'grid-userAnalysis'}>userAnalysis</ContentBox>
-            <ContentBox className={'grid-popularContents'}>popularContents</ContentBox>
-            <ContentBox className={'grid-popularSearch'}>popularSearch</ContentBox>
-            <ContentBox className={'grid-contentsSearch'}>contentsSearch</ContentBox>
+            <WhiteBox className={'grid-totalView'}>
+              <div className="content_title">영상 누적 주회수</div>
+              <div className="content_value">111,111</div>
+            </WhiteBox>
+            <WhiteBox className={'grid-totalPlay'}>
+              <div className="content_title">최다 영상 조회수</div>
+              <div className="content_value">333,333</div>
+            </WhiteBox>
+            <WhiteBox className={'grid-maxView'}>
+              <div className="content_title">최다 시청 진료과</div>
+              <div className="content_value">정형외과</div>
+            </WhiteBox>
+            <WhiteBox className={'grid-todayVisit'}>
+              <div className="content_title">최다 시청 병원</div>
+              <div className="content_value">이대 병원</div>
+            </WhiteBox>
+            <WhiteBox className={'grid-contentsRanking'}>contentsRanking</WhiteBox>
+            <WhiteBox className={'grid-userAnalysis'}>userAnalysis</WhiteBox>
+            <WhiteBox className={'grid-popularContents'}>
+              <PieChart title="관리 주간 그래프" pieWidth="100px" pieHeight="110px" />
+            </WhiteBox>
+            <WhiteBox className={'grid-contentsSearch'}>contentsSearch</WhiteBox>
           </ContentGridBox>
         </DashContainer>
         <MemoContainer></MemoContainer>
