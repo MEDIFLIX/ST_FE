@@ -97,40 +97,7 @@ const ContentGridBox = styled.div`
   }
 `;
 
-//
-const StatusContainer = styled.div`
-    display: absolute;
-    flex-direction: column
-    position: relative;
-    margin: 10px;
-    padding: 10px;
-    background-color: #FFFFFF;
-    height: 30%
-`;
 
-const MessageContainer = styled.div`
-  display: absolute;
-  background-color: #FFFFFF;
-  border-color: #E31E26;
-  border-style:solid;
-  border-width: 0px 0px 10px 0px;
-  border-radius: 5%;    
-  margin: 10px;
-  padding: 10px;    
-  height: 30%
-`;
-
-const MemoBox = styled.div`
-  display: absolute;
-  background-color: #FFFFFF;
-  border-color: #E31E26;
-  border-style:solid;
-  border-width: 0px 0px 10px 0px;
-  border-radius: 5%;
-  margin: 10px;
-  padding: 10px;
-  height: 30%
-`;
 
 const MainPage = () => {
   return (
@@ -164,18 +131,7 @@ const MainPage = () => {
             </ContentBox>
           </ContentGridBox>
         </DashContainer>
-        <MemoContainer>
-          <StatusContainer>
-            <SearchBar/>
-            <UserList/>
-          </StatusContainer>
-          <MessageContainer>
-            <Message></Message>
-          </MessageContainer>
-          <MemoBox>
-            <Memo></Memo>
-          </MemoBox>
-        </MemoContainer>
+        <MemoBar/>
       </ContentContainer>
     </MainContainer>
   );
