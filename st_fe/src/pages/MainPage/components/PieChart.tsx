@@ -99,12 +99,6 @@ const options = {
       precision: 2,
     },
   },
-  pieceLabel: {
-    mode: 'value',
-    position: 'outside',
-    fontSize: 11,
-    fontStyle: 'bold',
-  },
 };
 
 interface IPieChart {

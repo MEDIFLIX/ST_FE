@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import MemoBar from '../../components/MemoBar';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import PieChart from '../MainPage/components/PieChart';
@@ -165,7 +166,9 @@ const Original = () => {
             <WhiteBox className={'grid-contentsSearch'}>contentsSearch</WhiteBox>
           </ContentGridBox>
         </DashContainer>
-        <MemoContainer></MemoContainer>
+        <MemoContainer>
+          <MemoBar />
+        </MemoContainer>
       </ContentContainer>
     </MainContainer>
   );

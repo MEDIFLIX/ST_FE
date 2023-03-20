@@ -7,7 +7,7 @@ import BarChart from './components/BarChart';
 import ListItems from './components/ListItems';
 import ContentList from './components/ContentList';
 import PieChart from './components/PieChart';
-import MemoBar from '../../components/MemoBar'
+import MemoBar from '../../components/MemoBar';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -71,7 +71,7 @@ const ContentGridBox = styled.div`
     'graph graph graph item1 item2'
     'weekContent weekContent weekContent diagram diagram';
 
-  grid-template-rows: 330px 233px 226px;
+  grid-template-rows: 1.4fr 1.1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
   .grid-chart {
@@ -96,8 +96,6 @@ const ContentGridBox = styled.div`
     grid-area: diagram;
   }
 `;
-
-
 
 const MainPage = () => {
   return (
@@ -131,7 +129,7 @@ const MainPage = () => {
             </ContentBox>
           </ContentGridBox>
         </DashContainer>
-        <MemoBar/>
+        <MemoBar />
       </ContentContainer>
     </MainContainer>
   );
