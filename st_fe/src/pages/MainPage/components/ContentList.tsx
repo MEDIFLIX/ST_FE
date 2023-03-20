@@ -76,12 +76,16 @@ const ContentBox = styled.div`
   div:nth-child(5) {
     flex: 1;
   }
+  .contentList_imgBox {
+    width: 150px;
+    height: 65px;
+  }
 `;
 
 const ContentList = () => {
   const data = [
-    { prior: 1, img: 'img', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: 'img', title: '제목', number: '200회', diffRate: '10%' },
+    { prior: 1, img: '/img/content1.jpg', title: '제목', number: '200회', diffRate: '10%' },
+    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
   ];
 
   return (
@@ -98,8 +102,8 @@ const ContentList = () => {
         {data.map(({ prior, img, title, number, diffRate }) => (
           <ContentBox>
             <div>{prior}</div>
-            <div>
-              <img src="/img/logo.svg" alt="img" />
+            <div className="contentList_imgBox">
+              <img src={img} alt="img" />
             </div>
             <div>{title}</div>
             <div>{number}</div>
