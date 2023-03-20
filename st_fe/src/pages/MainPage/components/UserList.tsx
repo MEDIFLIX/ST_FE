@@ -12,7 +12,7 @@ export type UserType = {
   name: string
   role: string
 }
-
+ 
 export default function UserList(): React.ReactElement {
   const [userList, setUserList] = useState<UserType[]>([
     {

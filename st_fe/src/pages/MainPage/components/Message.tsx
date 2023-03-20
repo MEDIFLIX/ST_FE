@@ -55,6 +55,7 @@ const CardButtonContainer = styled.div`
 `;
 
 
+
 const Message = ({ message }: MessageProps) => {
     const { name, detail, date, isCheck } = message;
     const [checked, setChecked] = useState(isCheck);

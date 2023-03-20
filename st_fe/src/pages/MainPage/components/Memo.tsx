@@ -28,6 +28,7 @@ const Memo = () => {
         setMemo(text);
     }
 
+    
     return (
         <div>
             <Title>오늘의 할일</Title>

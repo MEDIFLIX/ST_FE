@@ -44,7 +44,7 @@ const CardNameContainer = styled.div`
   }
 
 `;
-
+ 
 function User ({ user }: UserProps){
   const {name, role} = user
   

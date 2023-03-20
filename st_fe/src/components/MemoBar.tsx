@@ -62,4 +62,5 @@ const MemoBar = () => {
   );
 }
 
+
 export default MemoBar;
