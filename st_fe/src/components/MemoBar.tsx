@@ -5,6 +5,7 @@ import MessageList from '../pages/MainPage/components/MessageList';
 
 const MemoContainer = styled.section`
   flex: 1;
+  width: 300px;
   height: 100%;
   background-color: #fbfbfb;
 `;
