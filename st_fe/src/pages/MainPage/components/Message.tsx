@@ -4,7 +4,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { MessageType } from './MessageList'
+import { MessageType } from './MessageList'
 import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
 
