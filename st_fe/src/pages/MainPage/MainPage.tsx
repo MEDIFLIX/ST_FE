@@ -7,10 +7,7 @@ import BarChart from './components/BarChart';
 import ListItems from './components/ListItems';
 import ContentList from './components/ContentList';
 import PieChart from './components/PieChart';
-import SearchBar from './components/SearchBar';
-import UserList from './components/UserList';
-import Message from './components/Message';
-import Memo from './components/Memo';
+import MemoBar from '../../components/MemoBar'
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -34,12 +31,6 @@ const ContentContainer = styled.div`
 const DashContainer = styled.section`
   flex: 2.9;
   height: 100%;
-`;
-
-const MemoContainer = styled.section`
-  flex: 1;
-  height: 100%;
-  background-color: #fbfbfb;
 `;
 
 const Title = styled.div`
@@ -119,26 +110,26 @@ const StatusContainer = styled.div`
 
 const MessageContainer = styled.div`
   display: absolute;
-  background-color: #ffffff;
-  border-color: #e31e26;
-  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #E31E26;
+  border-style:solid;
   border-width: 0px 0px 10px 0px;
-  border-radius: 5%;
+  border-radius: 5%;    
   margin: 10px;
-  padding: 10px;
-  height: 30%;
+  padding: 10px;    
+  height: 30%
 `;
 
 const MemoBox = styled.div`
   display: absolute;
-  background-color: #ffffff;
-  border-color: #e31e26;
-  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #E31E26;
+  border-style:solid;
   border-width: 0px 0px 10px 0px;
   border-radius: 5%;
   margin: 10px;
   padding: 10px;
-  height: 30%;
+  height: 30%
 `;
 
 const MainPage = () => {
@@ -175,8 +166,8 @@ const MainPage = () => {
         </DashContainer>
         <MemoContainer>
           <StatusContainer>
-            <SearchBar />
-            <UserList />
+            <SearchBar/>
+            <UserList/>
           </StatusContainer>
           <MessageContainer>
             <Message></Message>
