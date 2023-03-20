@@ -7,10 +7,6 @@ import BarChart from './components/BarChart';
 import ListItems from './components/ListItems';
 import ContentList from './components/ContentList';
 import PieChart from './components/PieChart';
-import UserList from './components/UserList';
-import Memo from './components/Memo';
-import MessageList from './components/MessageList';
-
 import MemoBar from '../../components/MemoBar'
 
 const MainContainer = styled.div`
