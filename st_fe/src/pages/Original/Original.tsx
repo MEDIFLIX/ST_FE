@@ -3,6 +3,7 @@ import MemoBar from '../../components/MemoBar';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import PieChart from '../MainPage/components/PieChart';
+import ContentSearch from './components/ContentSearch';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -163,7 +164,9 @@ const Original = () => {
             <WhiteBox className={'grid-popularContents'}>
               <PieChart title="관리 주간 그래프" pieWidth="100px" pieHeight="110px" />
             </WhiteBox>
-            <WhiteBox className={'grid-contentsSearch'}>contentsSearch</WhiteBox>
+            <WhiteBox className={'grid-contentsSearch'}>
+              <ContentSearch />
+            </WhiteBox>
           </ContentGridBox>
         </DashContainer>
         <MemoContainer>
