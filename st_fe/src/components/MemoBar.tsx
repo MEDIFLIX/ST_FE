@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import UserList from '../pages/MainPage/components/UserList';
 import Memo from '../pages/MainPage/components/Memo';
 import MessageList from '../pages/MainPage/components/MessageList';
+import * as API from '../api/API';
+import { useEffect } from 'react';
 
 const MemoContainer = styled.section`
   flex: 1;
@@ -47,6 +49,18 @@ const MemoBox = styled.div`
 `;
 
 const MemoBar = () => {
+  const BASEURL = `https://52.79.101.197:8080`;
+  const fetchAdminList = async () => {
+    const data = API.get(`${BASEURL}/admin/list`);
+    return data;
+  };
+
+  useEffect(() => {
+    const adminList = fetchAdminList();
+
+    console.log(adminList);
+  });
+
   return (
     <MemoContainer>
       <StatusContainer>
