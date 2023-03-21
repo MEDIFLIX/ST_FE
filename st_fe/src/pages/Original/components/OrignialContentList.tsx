@@ -117,13 +117,55 @@ const AdminLabel = styled.div<AdminLabelProp>`
 
 const OriginalContentList = () => {
   const data = [
-    { prior: 1, img: '/img/content1.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
+    {
+      prior: 1,
+      img: '/img/썸네일1.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
+    {
+      prior: 2,
+      img: '/img/썸네일2.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
+    {
+      prior: 2,
+      img: '/img/썸네일3.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
+    {
+      prior: 2,
+      img: '/img/썸네일4.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
+    {
+      prior: 2,
+      img: '/img/썸네일5.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
+    {
+      prior: 2,
+      img: '/img/썸네일6.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
+    {
+      prior: 2,
+      img: '/img/썸네일7.png',
+      title: '제목',
+      number: '200회',
+      diffRate: '10%',
+    },
   ];
 
   return (
