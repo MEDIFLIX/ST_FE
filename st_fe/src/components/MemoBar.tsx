@@ -11,13 +11,14 @@ const MemoContainer = styled.section`
 `;
 
 const StatusContainer = styled.div`
-    display: absolute;
+    display: relative;
     flex-direction: column
     position: relative;
     margin: 10px;
     padding: 10px;
-    background-color: #FFFFFF;
-    height: auto
+    background-color: #FBFBFB;
+    height: 390px;
+    border-radius: 5%;
 `;
 
 const MessageContainer = styled.div`
@@ -29,8 +30,7 @@ const MessageContainer = styled.div`
   border-radius: 5%;    
   margin: 10px;
   padding: 10px; 
-  min-height: 300px;   
-  height: auto;
+  height: 250px;
 `;
 
 const MemoBox = styled.div`
@@ -42,7 +42,7 @@ const MemoBox = styled.div`
   border-radius: 5%;
   margin: 10px;
   padding: 10px;
-  height: auto;
+  height: 200px;
 `;
 
 

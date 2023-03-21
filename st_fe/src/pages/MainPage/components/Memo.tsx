@@ -11,7 +11,6 @@ const Title = styled.div`
     font-size: 20px;
     font-weight: bold;
     margin: 10px;
-    margin-bottom: 30px
 `;
 
 
@@ -32,13 +31,12 @@ const Memo = () => {
     return (
         <div>
             <Title>오늘의 할일</Title>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end', maxWidth: '100%', flex: 1, margin: "10px" }}>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end', maxWidth: '100%', flex: 1, marginLeft: "10px", marginRight: "10px" }}>
                 <TextField
                     fullWidth
                     id="standard-textarea"
                     placeholder="메모를 입력하세요."
                     variant="standard"
-                    multiline
                     onChange = {handleChangeText}
                 />
 
@@ -48,7 +46,7 @@ const Memo = () => {
             
             </Box>
           
-            <textarea style={{margin: '10', border:'none'}} value={memo} rows={10} cols={45} readOnly></textarea>
+            <textarea style={{margin: '10px', border:'none', resize: 'none'}} value={memo} rows={7} cols={35} readOnly></textarea>
             
         </div>
     );

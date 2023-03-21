@@ -7,12 +7,34 @@ import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
+
+// import axios from 'axios';
+
+// const instance = axios.create();
+
+// instance.defaults.withCredentials = true;
+// instance.defaults.headers['Content-Type'] = 'application/json';
+
+// const get = async (url: string) => {
+//   try {
+//     const { data } = await instance.get(url);
+//     return data;
+//   } catch (error) {
+//     if (error instanceof Error)
+//       throw new Error(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${error.message}`);
+//   }
+// };
+
+// const testList = get("/admin/list");
+// console.log(testList);
+
+
 export type UserType = {
   id: number
   name: string
   role: string
 }
- 
+
 export default function UserList(): React.ReactElement {
   const [userList, setUserList] = useState<UserType[]>([
     {
@@ -61,9 +83,8 @@ export default function UserList(): React.ReactElement {
 
 
   // limit: 페이지 당 띄울 Card 개수
-  const [limit, setLimit] = useState(3);
+  const limit = 4;
   const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
   const LAST_PAGE = Math.ceil(userList.length / limit);
 
   const [input, setInput] = useState('');
@@ -75,25 +96,25 @@ export default function UserList(): React.ReactElement {
   const [curUserList, setCurUserList] = useState(userList);
 
   useEffect(() => {
-    if(page === LAST_PAGE){ 
+    if (page === LAST_PAGE) {
       setCurUserList(userList.slice(limit * (page - 1)));
     } else {
       setCurUserList(userList.slice(limit * (page - 1), limit * (page - 1) + limit));
-    }  
+    }
   }, [page]);
 
-  const handlePage = (event:any) => {
+  const handlePage = (event: any) => {
     const nowPageInt = parseInt(event.target.outerText);
     setPage(nowPageInt);
   }
 
-  useEffect(()=>{
-    if(page == LAST_PAGE){
+  useEffect(() => {
+    if (page == LAST_PAGE) {
       setCurUserList(userList.filter((item) => item.name.includes(input)).slice(limit * (page - 1)));
-    }else {
+    } else {
       setCurUserList(userList.filter((item) => item.name.includes(input)).slice(limit * (page - 1), limit * (page - 1) + limit));
-    }  
-  },[input]);
+    }
+  }, [input]);
 
   return (
     <div>
@@ -114,17 +135,22 @@ export default function UserList(): React.ReactElement {
           }}
         />
       </Box>
-      
-      {curUserList.map(user => <User key={user.id} user={user} />)}
-      
+
+      <Box sx={{ dispaly: 'absolute', height: '300px' }}>
+        {curUserList.map(user => <User key={user.id} user={user} />)}
+
+      </Box>
+
+
+
       <Stack alignItems="center">
         <Pagination
-          count={3}
-          defaultPage = {1}
+          count={LAST_PAGE}
+          defaultPage={1}
           hidePrevButton hideNextButton
           size='small'
           onChange={handlePage}
-          />
+        />
       </Stack>
     </div>
   )

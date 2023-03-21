@@ -16,6 +16,19 @@ export type MessageType = {
 
 export default function MessageList (): React.ReactElement {
   
+  const [text, setText] = useState<string>("");
+  const handleChangeText = (event:any) =>{
+    setText(event.target.value);
+  };
+
+  const newElement = {
+    id: 0,
+    name:"김땡땡",
+    detail: text,
+    date: "2023.02.10.",
+    isCheck: false
+  }
+
   const [messageList, setMessageList] = useState<MessageType[]>([
     {
         id: 0,
@@ -32,6 +45,10 @@ export default function MessageList (): React.ReactElement {
         isCheck: true
     },
   ]);
+
+  const handleChangeMessageList= () => {
+    setMessageList([...messageList,newElement]);
+  }
   
   
   return (
@@ -42,9 +59,10 @@ export default function MessageList (): React.ReactElement {
                     id="standard-textarea"
                     multiline
                     variant="standard"
+                    onChange = {handleChangeText}
                 />
 
-                <IconButton color="primary">
+                <IconButton color="primary" onClick={handleChangeMessageList}>
                     <TelegramIcon sx={{ color: "#E31E26" }} />
                 </IconButton>
         </Box>
