@@ -46,7 +46,7 @@ const Memo = () => {
             
             </Box>
           
-            <textarea style={{margin: '10px', border:'none', resize: 'none'}} value={memo} rows={8} cols={35} readOnly></textarea>
+            <textarea style={{margin: '10px', border:'none', resize: 'none'}} value={memo} rows={7} cols={35} readOnly></textarea>
             
         </div>
     );

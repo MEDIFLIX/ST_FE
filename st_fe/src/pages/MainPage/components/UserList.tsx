@@ -7,6 +7,28 @@ import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
+
+// import axios from 'axios';
+
+// const instance = axios.create();
+
+// instance.defaults.withCredentials = true;
+// instance.defaults.headers['Content-Type'] = 'application/json';
+
+// const get = async (url: string) => {
+//   try {
+//     const { data } = await instance.get(url);
+//     return data;
+//   } catch (error) {
+//     if (error instanceof Error)
+//       throw new Error(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${error.message}`);
+//   }
+// };
+
+// const testList = get("/api/admin/list");
+// console.log(testList);
+
+
 export type UserType = {
   id: number
   name: string
