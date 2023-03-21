@@ -25,7 +25,7 @@ import { Search } from '@mui/icons-material';
 //   }
 // };
 
-// const testList = get("/api/admin/list");
+// const testList = get("/admin/list");
 // console.log(testList);
 
 
