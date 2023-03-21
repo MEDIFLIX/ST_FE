@@ -11,6 +11,8 @@ const ContentListContainer = styled.div`
     font-weight: bold;
     margin: 10px 0px;
   }
+  .contentList_LabelBox {
+  }
 `;
 
 const BarBox = styled.div`
@@ -45,13 +47,16 @@ const BarBox = styled.div`
   div:nth-child(6) {
     flex: 1;
   }
+  div:nth-child(7) {
+    flex: 1;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
-  height: 400px;
+  height: 350px;
 `;
 
 const ContentBox = styled.div`
@@ -85,10 +90,29 @@ const ContentBox = styled.div`
   div:nth-child(6) {
     flex: 1;
   }
+  div:nth-child(7) {
+    flex: 1;
+  }
   .contentList_imgBox {
     width: 120px;
     height: 65px;
   }
+`;
+
+type AdminLabelProp = {
+  backgroundColor: string;
+};
+
+const AdminLabel = styled.div<AdminLabelProp>`
+  width: 59px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: ${(props) => props.backgroundColor};
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 28px;
+  border: 1px solid black;
+  margin: 0 auto;
 `;
 
 const OriginalContentList = () => {
@@ -124,7 +148,9 @@ const OriginalContentList = () => {
             <div>날짜</div>
             <div>{number}</div>
             <div>{diffRate}</div>
-            <div>관리지표</div>
+            <div className="contentList_LabelBox">
+              <AdminLabel backgroundColor="#FC3838">관리요함</AdminLabel>
+            </div>
           </ContentBox>
         ))}
       </ContentContainer>
