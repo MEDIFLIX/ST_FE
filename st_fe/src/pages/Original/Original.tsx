@@ -21,6 +21,7 @@ const ContentContainer = styled.div`
   width: 90vw;
   background-color: #e7e7e7;
   height: 100%;
+  min-height: calc(100vh-70px);
 `;
 
 const DashContainer = styled.section`
@@ -34,12 +35,6 @@ const Title = styled.div`
   margin-top: 28px;
   margin-left: 32px;
   height: 50px;
-`;
-
-const MemoContainer = styled.section`
-  flex: 1;
-  height: 100%;
-  background-color: #fbfbfb;
 `;
 
 const ContentGridBox = styled.div`
@@ -169,9 +164,7 @@ const Original = () => {
             </WhiteBox>
           </ContentGridBox>
         </DashContainer>
-        <MemoContainer>
-          <MemoBar />
-        </MemoContainer>
+        <MemoBar />
       </ContentContainer>
     </MainContainer>
   );
