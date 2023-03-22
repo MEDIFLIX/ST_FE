@@ -49,10 +49,8 @@ const MemoBox = styled.div`
 `;
 
 const MemoBar = () => {
-  const BASEURL = `http://13.124.233.9:8080`;
-
   const fetchAdminList = async () => {
-    const data = await API.get(`${BASEURL}/admin/list`);
+    const data = await API.get('/admin/list');
     console.log(data);
     return data;
   };
