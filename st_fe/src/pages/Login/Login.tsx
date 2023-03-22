@@ -23,6 +23,8 @@ const Login = () => {
       pwd: pwValue,
     };
     const res = await API.post('/admin/login', loginInfo);
+
+    console.log(res);
     if (res) {
       navigate(`/main`);
     }

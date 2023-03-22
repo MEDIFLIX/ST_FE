@@ -8,6 +8,8 @@ import ListItems from './components/ListItems';
 import ContentList from './components/ContentList';
 import PieChart from './components/PieChart';
 import MemoBar from '../../components/MemoBar';
+import * as API from '../../api/API';
+import { useEffect } from 'react';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -98,6 +100,17 @@ const ContentGridBox = styled.div`
 `;
 
 const MainPage = () => {
+  const fetchAdminList = async () => {
+    const data = await API.get('/board/list');
+    console.log(data);
+    return data;
+  };
+
+  useEffect(() => {
+    const adminList = fetchAdminList();
+
+    console.log(adminList);
+  }, []);
   return (
     <MainContainer>
       <NavBar />
