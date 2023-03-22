@@ -4,6 +4,7 @@ import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
 import PieChart from '../MainPage/components/PieChart';
 import ContentSearch from './components/ContentSearch';
+import SmoothLineChart from './components/SmoothLineChart';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -100,11 +101,10 @@ const WhiteBox = styled.div`
     position: absolute;
     top: 8px;
     left: 8px;
-    margin-bottom: px;
   }
 
   .content_value {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 25px;
   }
@@ -147,7 +147,9 @@ const Original = () => {
               <div className="content_title">최다 시청 병원</div>
               <div className="content_value">이대 병원</div>
             </WhiteBox>
-            <WhiteBox className={'grid-contentsRanking'}>contentsRanking</WhiteBox>
+            <WhiteBox className={'grid-contentsRanking'}>
+              <SmoothLineChart />
+            </WhiteBox>
             <WhiteBox className={'grid-userAnalysis'}>
               <div className="content_title">주간 인기 검색어</div>
               <div className="label_container">
