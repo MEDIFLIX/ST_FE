@@ -23,7 +23,7 @@ const SideBarContainer = styled(FlexContainer)`
     flex-direction: column;
     position: absolute;
     top: 90px;
-    height: 170px;
+    height: 430px;
     justify-content: space-between;
     align-items: flex-start;
     width: 90%;
@@ -31,7 +31,7 @@ const SideBarContainer = styled(FlexContainer)`
 
   .SideOption {
     display: flex;
-    top: 419px;
+    top: 695px;
     flex-direction: column;
     position: absolute;
     justify-content: space-between;
@@ -92,7 +92,7 @@ const SideBar = ({ isDash }: SideBarProps) => {
             sx={{ color: 'white', border: 'none', fontSize: '13px' }}
             onClick={handleContentBtn}
           >
-            콘텐츠 관리
+            Original
           </Button>
         ) : (
           <Button
@@ -101,9 +101,37 @@ const SideBar = ({ isDash }: SideBarProps) => {
             sx={{ color: 'red', border: 'none', fontSize: '13px' }}
             onClick={handleContentBtn}
           >
-            콘텐츠 관리
+            Original
           </Button>
         )}
+        <Button
+          variant="outlined"
+          startIcon={<MovieCreationOutlinedIcon />}
+          sx={{ color: 'white', border: 'none', fontSize: '13px' }}
+        >
+          VOD
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<MovieCreationOutlinedIcon />}
+          sx={{ color: 'white', border: 'none', fontSize: '13px' }}
+        >
+          Drug Info
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<MovieCreationOutlinedIcon />}
+          sx={{ color: 'white', border: 'none', fontSize: '13px' }}
+        >
+          Life
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<MovieCreationOutlinedIcon />}
+          sx={{ color: 'white', border: 'none', fontSize: '13px' }}
+        >
+          콘텐츠 분석
+        </Button>
       </div>
       <div className="SideOption">
         <Button
