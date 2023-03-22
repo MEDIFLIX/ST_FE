@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create();
+axios.defaults.baseURL = 'http://13.124.233.9:8080';
 instance.defaults.headers['Content-Type'] = 'application/json';
 
 const errCheck = (err: unknown) => {
