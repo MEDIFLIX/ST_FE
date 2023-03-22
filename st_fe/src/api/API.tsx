@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 const instance = axios.create();
-
-instance.defaults.withCredentials = true;
 instance.defaults.headers['Content-Type'] = 'application/json';
 
 const errCheck = (err: unknown) => {

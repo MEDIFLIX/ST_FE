@@ -18,7 +18,7 @@ const StatusContainer = styled.div`
     position: relative;
     margin: 10px;
     padding: 10px;
-    background-color: #FBFBFB;
+    background-color : #FBFBFB;
     height: 390px;
     border-radius: 5%;
 `;
@@ -49,9 +49,11 @@ const MemoBox = styled.div`
 `;
 
 const MemoBar = () => {
-  const BASEURL = `https://52.79.101.197:8080`;
+  const BASEURL = `http://13.124.233.9:8080`;
+
   const fetchAdminList = async () => {
-    const data = API.get(`${BASEURL}/admin/list`);
+    const data = await API.get(`${BASEURL}/admin/list`);
+    console.log(data);
     return data;
   };
 
@@ -59,7 +61,7 @@ const MemoBar = () => {
     const adminList = fetchAdminList();
 
     console.log(adminList);
-  });
+  }, []);
 
   return (
     <MemoContainer>
