@@ -96,7 +96,7 @@ const Memo = () => {
         </IconButton>
       </Box>
       <ListBox>
-        <List sx={{ width: '100%', maxWidth: '300px', bgcolor: 'background.paper' }}>
+        <List sx={{ width: '90%', bgcolor: 'background.paper' }}>
           {memo.map((data, idx) => {
             const labelId = `checkbox-list-label-${data.value}`;
 
