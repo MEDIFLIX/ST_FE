@@ -100,16 +100,14 @@ const ContentGridBox = styled.div`
 `;
 
 const MainPage = () => {
-  const fetchAdminList = async () => {
+  const fetchBoardList = async () => {
     const data = await API.get('/board/list');
-    console.log(data);
+    console.log('data', data);
     return data;
   };
 
   useEffect(() => {
-    const adminList = fetchAdminList();
-
-    console.log(adminList);
+    const boardList = fetchBoardList();
   }, []);
   return (
     <MainContainer>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'http://13.124.233.9:8080';
-axios.defaults.withCredentials = true;
 const instance = axios.create();
 instance.defaults.headers['Content-Type'] = 'application/json';
 
