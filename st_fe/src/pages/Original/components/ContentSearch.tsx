@@ -204,7 +204,7 @@ const ContentSearch = () => {
       management: '신경요함',
     },
     {
-      prior: 2,
+      prior: 3,
       img: '/img/썸네일3.png',
       title: '제목',
       number: 20,
@@ -212,7 +212,7 @@ const ContentSearch = () => {
       management: '성과진행',
     },
     {
-      prior: 2,
+      prior: 4,
       img: '/img/썸네일4.png',
       title: '제목',
       number: 2024,
@@ -220,7 +220,7 @@ const ContentSearch = () => {
       management: '관리요함',
     },
     {
-      prior: 2,
+      prior: 5,
       img: '/img/썸네일5.png',
       title: '제목',
       number: 2005,
@@ -228,7 +228,7 @@ const ContentSearch = () => {
       management: '관리요함',
     },
     {
-      prior: 2,
+      prior: 6,
       img: '/img/썸네일6.png',
       title: '제목',
       number: 2007,
@@ -236,7 +236,7 @@ const ContentSearch = () => {
       management: '성과진행',
     },
     {
-      prior: 2,
+      prior: 7,
       img: '/img/썸네일7.png',
       title: '제목',
       number: 200,
@@ -253,8 +253,7 @@ const ContentSearch = () => {
     setButtonLabel(buttonLabelData);
   }, []);
 
-  const hanldleViewClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const currentId = e.currentTarget.id;
+  const buttonLabelChange = (currentId: string) => {
     setButtonLabel((current) =>
       current.map(({ title, id, clicked }) => {
         if (id === currentId && clicked === false) {
@@ -263,6 +262,32 @@ const ContentSearch = () => {
       }),
     );
   };
+
+  const hanldleViewClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const currentId = e.currentTarget.id;
+    buttonLabelChange(currentId);
+  };
+
+  useEffect(() => {
+    const clickedIdx = buttonLabel.findIndex((button) => button.clicked);
+
+    if (clickedIdx === -1) {
+      setShowData(fulldata);
+    } else if (clickedIdx === 0) {
+      setShowData(() => {
+        const copy = [...fulldata];
+        return copy.sort((a, b) => b.number - a.number);
+      });
+    } else if (clickedIdx === 1) {
+      setShowData(fulldata);
+    } else if (clickedIdx === 2) {
+      setShowData(fulldata.filter((data) => data.management === '관리요함'));
+    } else if (clickedIdx === 3) {
+      setShowData(fulldata.filter((data) => data.management === '신경요함'));
+    } else if (clickedIdx === 4) {
+      setShowData(fulldata.filter((data) => data.management === '성과진행'));
+    }
+  }, [buttonLabel]);
 
   return (
     <ContentSearchContainer>
