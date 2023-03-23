@@ -7,6 +7,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import MovieCreationOutlinedIcon from '@mui/icons-material/MovieCreationOutlined';
 import { useNavigate } from 'react-router';
+import EnhancedEncryptionIcon from '@mui/icons-material/EnhancedEncryption';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 
 const SideBarContainer = styled(FlexContainer)`
   position: absolute;
@@ -113,14 +115,14 @@ const SideBar = ({ isDash }: SideBarProps) => {
         </Button>
         <Button
           variant="outlined"
-          startIcon={<MovieCreationOutlinedIcon />}
+          startIcon={<EnhancedEncryptionIcon />}
           sx={{ color: 'white', border: 'none', fontSize: '13px' }}
         >
           Drug Info
         </Button>
         <Button
           variant="outlined"
-          startIcon={<MovieCreationOutlinedIcon />}
+          startIcon={<AppRegistrationIcon />}
           sx={{ color: 'white', border: 'none', fontSize: '13px' }}
         >
           Life
