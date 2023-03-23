@@ -49,17 +49,17 @@ const MemoBox = styled.div`
 `;
 
 const MemoBar = () => {
-  const fetchAdminList = async () => {
-    const data = await API.get('/admin/list');
-    console.log(data);
-    return data;
-  };
+  // const fetchAdminList = async () => {
+  //   const data = await API.get('/admin/list');
+  //   console.log(data);
+  //   return data;
+  // };
 
-  useEffect(() => {
-    const adminList = fetchAdminList();
+  // useEffect(() => {
+  //   const adminList = fetchAdminList();
 
-    console.log(adminList);
-  }, []);
+  //   console.log(adminList);
+  // }, []);
 
   return (
     <MemoContainer>

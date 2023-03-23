@@ -6,81 +6,33 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 import { Search } from '@mui/icons-material';
+import * as API from '../../../api/API';
 
-
-// import axios from 'axios';
-
-// const instance = axios.create();
-
-// instance.defaults.withCredentials = true;
-// instance.defaults.headers['Content-Type'] = 'application/json';
-
-// const get = async (url: string) => {
-//   try {
-//     const { data } = await instance.get(url);
-//     return data;
-//   } catch (error) {
-//     if (error instanceof Error)
-//       throw new Error(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${error.message}`);
-//   }
-// };
-
-// const testList = get("/admin/list");
-// console.log(testList);
 
 
 export type UserType = {
-  id: number
+  adminId: string
   name: string
+  phoneNumber: string
   role: string
 }
 
 export default function UserList(): React.ReactElement {
-  const [userList, setUserList] = useState<UserType[]>([
-    {
-      id: 0,
-      name: "이름 - 1",
-      role: "역할",
 
-    },
-    {
-      id: 1,
-      name: "이름 - 2",
-      role: "역할",
-    },
-    {
-      id: 2,
-      name: "이름 - 3",
-      role: "역할",
-    },
-    {
-      id: 3,
-      name: "이름 - 4",
-      role: "역할",
-    },
-    {
-      id: 4,
-      name: "이름 - 5",
-      role: "역할",
-    },
-    {
-      id: 5,
-      name: "이름 - 6",
-      role: "역할",
-    },
-    {
-      id: 6,
-      name: "이름 - 7",
-      role: "역할",
-    },
-    {
-      id: 7,
-      name: "이름 - 8",
-      role: "역할",
-    },
+  const [userList, setUserList] = useState<UserType[]>([]);
 
-  ]);
+    
+  const fetchAdminList = async () => {
+    const data = await API.get('/admin/list');
+    const list = data.result;
+    setCurUserList(list.slice(0,4));
+    setUserList(list);
+    return data;
+  };
 
+  useEffect(() => {
+    fetchAdminList();
+  },[]);
 
   // limit: 페이지 당 띄울 Card 개수
   const limit = 4;
@@ -137,7 +89,8 @@ export default function UserList(): React.ReactElement {
       </Box>
 
       <Box sx={{ dispaly: 'absolute', height: '300px' }}>
-        {curUserList.map(user => <User key={user.id} user={user} />)}
+
+        {curUserList.map(user => <User key={user.adminId} user={user} />)}
 
       </Box>
 

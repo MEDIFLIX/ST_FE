@@ -57,7 +57,7 @@ const CardButtonContainer = styled.div`
 
 
 const Message = ({ message }: MessageProps) => {
-    const { name, detail, date, isCheck } = message;
+    const { name, content, createDate, isCheck } = message;
     const [checked, setChecked] = useState(isCheck);
 
     const handleChangeCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,11 +73,11 @@ const Message = ({ message }: MessageProps) => {
                     <AccountCircleIcon sx={{ color: "#B7B7B7", fontSize: "38px" }} />
                     <CardNameContainer>
                         <p style={{ marginBottom: "5px", fontSize: "13px" }} >{name}</p>
-                        <p style={{ color: "#474747", fontSize: "11px" }}>{detail}</p>
+                        <p style={{ color: "#474747", fontSize: "11px" }}>{content}</p>
                     </CardNameContainer>
 
                     <CardDateContainer>
-                        <p style={{ color: "#6F6F6F", fontSize: "11px" }}>{date}</p>
+                        <p style={{ color: "#6F6F6F", fontSize: "11px" }}>{createDate}</p>
                         <CardButtonContainer>
                             <Checkbox
                                 checked={checked}
