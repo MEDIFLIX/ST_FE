@@ -186,11 +186,11 @@ const buttonLabelData = [
 ];
 
 const ContentSearch = () => {
-  const [fulldata, setFullData] = useState([
+  const [fullData, setfullData] = useState([
     {
       prior: 1,
       img: '/img/썸네일1.png',
-      title: '제목',
+      title: '이수빈짱짱',
       number: 20123,
       diffRate: '10%',
       management: '관리요함',
@@ -198,7 +198,7 @@ const ContentSearch = () => {
     {
       prior: 2,
       img: '/img/썸네일2.png',
-      title: '제목',
+      title: '안정후맨',
       number: 2001,
       diffRate: '10%',
       management: '신경요함',
@@ -206,7 +206,7 @@ const ContentSearch = () => {
     {
       prior: 3,
       img: '/img/썸네일3.png',
-      title: '제목',
+      title: '그냥 테스트임',
       number: 20,
       diffRate: '10%',
       management: '성과진행',
@@ -214,7 +214,7 @@ const ContentSearch = () => {
     {
       prior: 4,
       img: '/img/썸네일4.png',
-      title: '제목',
+      title: '뭐라카노시바꺼',
       number: 2024,
       diffRate: '10%',
       management: '관리요함',
@@ -222,7 +222,7 @@ const ContentSearch = () => {
     {
       prior: 5,
       img: '/img/썸네일5.png',
-      title: '제목',
+      title: '응그래 나도 몰라',
       number: 2005,
       diffRate: '10%',
       management: '관리요함',
@@ -238,7 +238,7 @@ const ContentSearch = () => {
     {
       prior: 7,
       img: '/img/썸네일7.png',
-      title: '제목',
+      title: '오오메디플릭스',
       number: 200,
       diffRate: '10%',
       management: '신경요함',
@@ -247,9 +247,10 @@ const ContentSearch = () => {
 
   const [showData, setShowData] = useState<DataProp[]>([]);
   const [buttonLabel, setButtonLabel] = useState<ButtonLabels[]>([]);
+  const [searchValue, setSearchValue] = useState<string>('');
 
   useEffect(() => {
-    setShowData(fulldata);
+    setShowData(fullData);
     setButtonLabel(buttonLabelData);
   }, []);
 
@@ -272,22 +273,34 @@ const ContentSearch = () => {
     const clickedIdx = buttonLabel.findIndex((button) => button.clicked);
 
     if (clickedIdx === -1) {
-      setShowData(fulldata);
+      setShowData(fullData);
     } else if (clickedIdx === 0) {
       setShowData(() => {
-        const copy = [...fulldata];
+        const copy = [...fullData];
         return copy.sort((a, b) => b.number - a.number);
       });
     } else if (clickedIdx === 1) {
-      setShowData(fulldata);
+      setShowData(fullData);
     } else if (clickedIdx === 2) {
-      setShowData(fulldata.filter((data) => data.management === '관리요함'));
+      setShowData(fullData.filter((data) => data.management === '관리요함'));
     } else if (clickedIdx === 3) {
-      setShowData(fulldata.filter((data) => data.management === '신경요함'));
+      setShowData(fullData.filter((data) => data.management === '신경요함'));
     } else if (clickedIdx === 4) {
-      setShowData(fulldata.filter((data) => data.management === '성과진행'));
+      setShowData(fullData.filter((data) => data.management === '성과진행'));
     }
   }, [buttonLabel]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.currentTarget.value);
+  };
+
+  useEffect(() => {
+    if (searchValue === '') {
+      setShowData(fullData);
+    } else {
+      setShowData(() => fullData.filter((data) => data.title.includes(searchValue)));
+    }
+  }, [searchValue]);
 
   return (
     <ContentSearchContainer>
@@ -307,6 +320,8 @@ const ContentSearch = () => {
           placeholder="콘텐츠를 검색하세요"
           type="search"
           variant="outlined"
+          onChange={handleSearchChange}
+          value={searchValue}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
