@@ -124,7 +124,7 @@ const SmoothLineChart = () => {
     labels,
     datasets: [
       {
-        label: '신규 가입자 수',
+        label: '암의 주요한 특징 3가지',
         data: [20, 120, 60, 140, 100, 50, 70],
         borderColor: '#D17777',
         backgroundColor: '#F36D74',
@@ -133,7 +133,7 @@ const SmoothLineChart = () => {
         tension: 0.4,
       },
       {
-        label: '방문자 수',
+        label: '코로나 19 치료법',
         data: [40, 140, 80, 160, 50, 60, 30],
         borderColor: '#8C8FEC',
         backgroundColor: '#F9D2D4',
@@ -142,7 +142,7 @@ const SmoothLineChart = () => {
         tension: 0.4,
       },
       {
-        label: '방문자 수',
+        label: '위산 억제제의 특징',
         data: [100, 10, 30, 65, 80, 60, 120],
         borderColor: '#8C8FEC',
         backgroundColor: '#A3AAE7',

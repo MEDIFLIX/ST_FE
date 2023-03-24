@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import styled from 'styled-components';
+import type { ContentData } from '../MainPage';
 
 ChartJS.register(
   CategoryScale,
@@ -97,8 +98,12 @@ const LineChartContainer = styled.div`
   }
 `;
 
-const LineChart = () => {
-  const labels = ['03.16', '03.17', '03.18', '03.19', '03.20', '03.21', '03.22'];
+type LineChartProps = {
+  contentData: ContentData[];
+};
+
+const LineChart = ({ contentData }: LineChartProps) => {
+  const labels = contentData.map((data) => data.date);
 
   const data = {
     labels,
@@ -106,7 +111,7 @@ const LineChart = () => {
       {
         label: '신규 가입자 수',
         fill: true,
-        data: [20, 120, 60, 140, 100, 50, 70],
+        data: contentData.map((data) => data.newVisit),
         borderColor: '#D17777',
         backgroundColor: 'rgba(227,30,38,0.2)',
         borderWidth: 0.5,
@@ -115,7 +120,7 @@ const LineChart = () => {
       {
         label: '방문자 수',
         fill: true,
-        data: [40, 140, 80, 160, 50, 60, 30],
+        data: contentData.map((data) => data.totalVisit),
         borderColor: '#8C8FEC',
         backgroundColor: 'rgba(8,98,217,0.28)',
         borderWidth: 0.5,
@@ -129,12 +134,12 @@ const LineChart = () => {
       <div className="lineChart_title">방문자 현황</div>
       <div>
         <div className="legendBox">
-          <div className="lineChart_newPeople" />
-          <div>신규 가입자 수</div>
-        </div>
-        <div className="legendBox">
           <div className="lineChart_newVisit" />
           <div>방문자 수</div>
+        </div>
+        <div className="legendBox">
+          <div className="lineChart_newPeople" />
+          <div>신규 가입자 수</div>
         </div>
       </div>
       <div className="chartWrap">
