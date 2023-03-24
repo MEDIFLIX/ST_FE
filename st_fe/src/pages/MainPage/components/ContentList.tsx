@@ -26,14 +26,14 @@ const BarBox = styled.div`
   text-align: center;
 
   div:nth-child(1) {
-    flex: 1;
+    flex: 0.75;
     width: 26px;
   }
   div:nth-child(2) {
     flex: 2;
   }
   div:nth-child(3) {
-    flex: 2;
+    flex: 2.5;
   }
   div:nth-child(4) {
     flex: 1;
@@ -60,7 +60,7 @@ const ContentBox = styled.div`
   }
 
   div:nth-child(1) {
-    flex: 1;
+    flex: 0.75;
   }
 
   div:nth-child(2) {
@@ -68,7 +68,7 @@ const ContentBox = styled.div`
     margin-top: 7px;
   }
   div:nth-child(3) {
-    flex: 2;
+    flex: 2.25;
   }
   div:nth-child(4) {
     flex: 1;
