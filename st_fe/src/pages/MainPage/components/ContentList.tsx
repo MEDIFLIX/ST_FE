@@ -84,8 +84,20 @@ const ContentBox = styled.div`
 
 const ContentList = () => {
   const data = [
-    { prior: 1, img: '/img/content1.jpg', title: '제목', number: '200회', diffRate: '10%' },
-    { prior: 2, img: '/img/content2.jpg', title: '제목', number: '200회', diffRate: '10%' },
+    {
+      prior: 1,
+      img: '/img/콘텐츠1.png',
+      title: '김해유 교수의 EPILEPSY',
+      number: '6892회',
+      diffRate: '1%',
+    },
+    {
+      prior: 2,
+      img: '/img/콘텐츠2.png',
+      title: '최정민교수의 역류성 식도질환',
+      number: '5634회',
+      diffRate: '4%',
+    },
   ];
 
   return (
