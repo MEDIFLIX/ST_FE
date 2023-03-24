@@ -112,7 +112,7 @@ const PieChart = ({ title, pieWidth, pieHeight }: IPieChart) => {
     datasets: [
       {
         label: '# of Votes',
-        data: [61, 51, 78, 74],
+        data: [234, 298, 190, 307],
         backgroundColor: ['#EDD2D1', '#EA5250', '#5E0807', '#A8110F'],
         borderColor: [
           'rgba(255, 99, 132, 1)',
