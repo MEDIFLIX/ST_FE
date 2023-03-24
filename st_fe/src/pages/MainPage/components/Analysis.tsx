@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PersonIcon from '@mui/icons-material/Person';
+import type { ContentData } from '../MainPage';
 
 const AnalysisContainer = styled.div`
   width: 90%;
@@ -115,29 +116,27 @@ type DateInfo = {
   clicked: boolean;
 };
 
-const Analysis = () => {
-  const [dateInfo, setDateInfo] = useState<DateInfo[]>([
-    { day: 'Mon', date: 19, clicked: true },
-    { day: 'Tue', date: 20, clicked: false },
-    { day: 'Wed', date: 21, clicked: false },
-    { day: 'Thu', date: 22, clicked: false },
-    { day: 'Fri', date: 23, clicked: false },
-    { day: 'Sat', date: 24, clicked: false },
-    { day: 'Sun', date: 25, clicked: false },
+type AnalysisProps = {
+  contentData: ContentData[];
+};
+
+type CurrentDayInfo = {
+  title: string;
+  people: number;
+};
+
+const Analysis = ({ contentData }: AnalysisProps) => {
+  const [dateInfo, setDateInfo] = useState<DateInfo[]>([]);
+  const [currentDayInfo, setCurrentDayInfo] = useState<CurrentDayInfo[]>([
+    { title: '당일 콘텐츠 조회수', people: contentData[0].dayContent },
+    { title: '총 방문자 수', people: contentData[0].totalVisit },
+    { title: '신규 가입자 수', people: contentData[0].newVisit },
+    { title: '탈퇴 회원 수', people: contentData[0].withdrawalNum },
   ]);
 
-  const content = [
-    { title: '총 방문자 수', people: 25 },
-    { title: '신규 가입자 수', people: 25 },
-    { title: '누적 콘텐츠 조회수', people: 25 },
-    { title: '탈퇴 회원 수', people: 25 },
-  ];
-
   const handleDateBtn = (e: React.MouseEvent) => {
-    const id = e.currentTarget.id;
-
-    console.log(id);
-
+    const [id, curIdxStr] = e.currentTarget.id.split('-');
+    const curIdx = parseInt(curIdxStr);
     setDateInfo((current) => {
       const newDateInfo = current.map(({ day, date, clicked }) => {
         if (day === id) {
@@ -147,7 +146,34 @@ const Analysis = () => {
 
       return newDateInfo;
     });
+
+    handleCurrentDayInfo(curIdx);
   };
+
+  const handleCurrentDayInfo = (idx: number) => {
+    setCurrentDayInfo((current) => {
+      const { totalVisit, newVisit, dayContent, withdrawalNum } = contentData[idx];
+
+      return current.map(({ title }, idx) => {
+        if (idx === 0) return { title, people: dayContent };
+        else if (idx === 1) return { title, people: totalVisit };
+        else if (idx === 2) return { title, people: newVisit };
+        else return { title, people: withdrawalNum };
+      });
+    });
+  };
+
+  useEffect(() => {
+    setDateInfo(() =>
+      contentData.map((data, idx) => {
+        const currentDate = parseInt(data.date.split('.')[1]);
+
+        return idx === 0
+          ? { day: data.day, date: currentDate, clicked: true }
+          : { day: data.day, date: currentDate, clicked: false };
+      }),
+    );
+  }, []);
 
   return (
     <AnalysisContainer>
@@ -157,14 +183,14 @@ const Analysis = () => {
         <div>March 2023</div>
       </Bar>
       <DateContainer>
-        {dateInfo.map(({ day, date, clicked }) =>
+        {dateInfo.map(({ day, date, clicked }, idx) =>
           clicked ? (
-            <Date backgroundColor="#E1ACAC" onClick={handleDateBtn} id={day} key={day}>
+            <Date backgroundColor="#E1ACAC" onClick={handleDateBtn} id={`${day}-${idx}`} key={day}>
               <div className="day">{day}</div>
               <div className="date">{date}</div>
             </Date>
           ) : (
-            <Date backgroundColor="#F9E5E5" onClick={handleDateBtn} id={day} key={day}>
+            <Date backgroundColor="#F9E5E5" onClick={handleDateBtn} id={`${day}-${idx}`} key={day}>
               <div className="day">{day}</div>
               <div className="date">{date}</div>
             </Date>
@@ -172,7 +198,7 @@ const Analysis = () => {
         )}
       </DateContainer>
       <ContentContainer>
-        {content.map(({ title, people }) => (
+        {currentDayInfo.map(({ title, people }) => (
           <ContentBox>
             <div className="content_wrap">
               <div className="content_title">{title}</div>
