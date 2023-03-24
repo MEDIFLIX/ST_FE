@@ -77,7 +77,7 @@ const Message = ({ message }: MessageProps) => {
                     </CardNameContainer>
 
                     <CardDateContainer>
-                        <p style={{ color: "#6F6F6F", fontSize: "11px" }}>{createDate}</p>
+                        <p style={{ color: "#6F6F6F", fontSize: "10px" }}>{createDate}</p>
                         <CardButtonContainer>
                             <Checkbox
                                 checked={checked}
