@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import MemoBar from '../../components/MemoBar';
 import NavBar from '../../components/Navbar';
 import SideBar from '../../components/SideBar';
-import PieChart from '../MainPage/components/PieChart';
 import ContentSearch from './components/ContentSearch';
+import OriginalPieChart from './components/OriginalPieChart';
 import SmoothLineChart from './components/SmoothLineChart';
 
 const MainContainer = styled.div`
@@ -121,7 +121,7 @@ const WhiteBox = styled.div`
 `;
 
 const Original = () => {
-  const label = ['암투병1', '암투병2', '암투병3', '암투병4'];
+  const label = ['암투병1', '코로나19', '폐암', '간암'];
 
   return (
     <MainContainer>
@@ -159,7 +159,7 @@ const Original = () => {
               </div>
             </WhiteBox>
             <WhiteBox className={'grid-popularContents'}>
-              <PieChart title="관리 주간 그래프" pieWidth="100px" pieHeight="110px" />
+              <OriginalPieChart title="관리 주간 그래프" pieWidth="100px" pieHeight="110px" />
             </WhiteBox>
             <WhiteBox className={'grid-contentsSearch'}>
               <ContentSearch />

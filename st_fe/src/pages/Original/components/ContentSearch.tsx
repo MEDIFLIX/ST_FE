@@ -146,6 +146,7 @@ type DataProp = {
   prior: number;
   img: string;
   title: string;
+  date: string;
   number: number;
   diffRate: string;
   management: string;
@@ -189,57 +190,82 @@ const ContentSearch = () => {
   const [fullData, setfullData] = useState([
     {
       prior: 1,
-      img: '/img/썸네일1.png',
-      title: '이수빈짱짱',
-      number: 20123,
+      img: '/img/썸네일순위1.png',
+      title: '대한민국에서 의사로 산다는 것',
+      number: 3023,
+      date: '2021-10-15',
       diffRate: '10%',
       management: '관리요함',
     },
     {
       prior: 2,
-      img: '/img/썸네일2.png',
-      title: '안정후맨',
-      number: 2001,
+      img: '/img/썸네일순위2.png',
+      title: '신경차단술의 모든 것',
+      number: 2145,
+      date: '2022-07-12',
       diffRate: '10%',
       management: '신경요함',
     },
     {
       prior: 3,
-      img: '/img/썸네일3.png',
-      title: '그냥 테스트임',
-      number: 20,
+      img: '/img/썸네일순위3.png',
+      title: 'EndoTODAY',
+      number: 1923,
+      date: '2022-09-10',
       diffRate: '10%',
       management: '성과진행',
     },
     {
       prior: 4,
-      img: '/img/썸네일4.png',
-      title: '뭐라카노시바꺼',
-      number: 2024,
+      img: '/img/썸네일순위4.png',
+      title: '대가의 진료실',
+      number: 1798,
+      date: '2021-10-16',
       diffRate: '10%',
-      management: '관리요함',
+      management: '성과진행',
     },
     {
       prior: 5,
-      img: '/img/썸네일5.png',
-      title: '응그래 나도 몰라',
-      number: 2005,
+      img: '/img/썸네일순위5.png',
+      title: '대답하기 애매한 "뭐 먹으면 좋나요?"',
+      number: 1545,
+      date: '2022-05-11',
       diffRate: '10%',
-      management: '관리요함',
+      management: '신경요함',
     },
     {
       prior: 6,
-      img: '/img/썸네일6.png',
-      title: '제목',
-      number: 2007,
+      img: '/img/썸네일순위6.png',
+      title: '유로퀴즈 온더 블럭!',
+      number: 1478,
+      date: '2022-06-20',
       diffRate: '10%',
       management: '성과진행',
     },
     {
       prior: 7,
-      img: '/img/썸네일7.png',
-      title: '오오메디플릭스',
-      number: 200,
+      img: '/img/썸네일순위7.png',
+      title: '이민영 원장과 함께하는 울트라 소닉 웨이브',
+      number: 1245,
+      date: '2022-02-24',
+      diffRate: '10%',
+      management: '관리요함',
+    },
+    {
+      prior: 8,
+      img: '/img/썸네일순위8.png',
+      title: '똑같은 형태의 당뇨병일 가진 사람은 결코 없다',
+      number: 978,
+      date: '2021-09-27',
+      diffRate: '10%',
+      management: '관리요함',
+    },
+    {
+      prior: 9,
+      img: '/img/썸네일순위9.png',
+      title: '의로운 클라쓰 -심장내과 편-',
+      number: 784,
+      date: '2022-01-27',
       diffRate: '10%',
       management: '신경요함',
     },
@@ -349,14 +375,14 @@ const ContentSearch = () => {
           <div>관리지표</div>
         </BarBox>
         <ContentContainer>
-          {showData.map(({ prior, img, title, number, diffRate, management }) => (
+          {showData.map(({ prior, img, title, number, date, diffRate, management }) => (
             <ContentBox>
               <div>{prior}</div>
               <div className="contentList_imgBox">
                 <img src={img} alt="img" />
               </div>
               <div>{title}</div>
-              <div>날짜</div>
+              <div>{date}</div>
               <div>{`${number}회`}</div>
               <div>{diffRate}</div>
               {management === '관리요함' ? (
