@@ -20,7 +20,7 @@
 1) 대시보드 내의 유기성 향상 - 효율적인 켄텐츠 분석 가능
 <img width="975" alt="image" src="https://user-images.githubusercontent.com/86239380/227524531-3199afc7-a8a0-458a-bd64-7b0664c231ca.png">
 2) 외주 업체와의 소통 채널 구현
-<img width="343" alt="스크린샷 2023-03-24 오후 7 49 31" src="https://user-images.githubusercontent.com/86239380/227524545-a786e64c-a2cc-4421-b940-4c62cd7ea51a.png">
+<img width="344" alt="image" src="https://user-images.githubusercontent.com/86239380/227527230-75de5cef-5d32-4732-917a-216629c4e041.png">
 3) 사용자 중심의 UI UX 디자인 구현
 <img width="975" alt="스크린샷 2023-03-24 오후 9 39 27" src="https://user-images.githubusercontent.com/86239380/227524186-596ecc68-a277-44de-80df-6678572abe44.png">
 
