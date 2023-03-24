@@ -194,7 +194,7 @@ const ContentSearch = () => {
       title: '대한민국에서 의사로 산다는 것',
       number: 3023,
       date: '2021-10-15',
-      diffRate: '10%',
+      diffRate: '-5%',
       management: '관리요함',
     },
     {
@@ -203,7 +203,7 @@ const ContentSearch = () => {
       title: '신경차단술의 모든 것',
       number: 2145,
       date: '2022-07-12',
-      diffRate: '10%',
+      diffRate: '2%',
       management: '신경요함',
     },
     {
@@ -212,7 +212,7 @@ const ContentSearch = () => {
       title: 'EndoTODAY',
       number: 1923,
       date: '2022-09-10',
-      diffRate: '10%',
+      diffRate: '11%',
       management: '성과진행',
     },
     {
@@ -221,7 +221,7 @@ const ContentSearch = () => {
       title: '대가의 진료실',
       number: 1798,
       date: '2021-10-16',
-      diffRate: '10%',
+      diffRate: '7%',
       management: '성과진행',
     },
     {
@@ -230,7 +230,7 @@ const ContentSearch = () => {
       title: '대답하기 애매한 "뭐 먹으면 좋나요?"',
       number: 1545,
       date: '2022-05-11',
-      diffRate: '10%',
+      diffRate: '-1%',
       management: '신경요함',
     },
     {
@@ -239,7 +239,7 @@ const ContentSearch = () => {
       title: '유로퀴즈 온더 블럭!',
       number: 1478,
       date: '2022-06-20',
-      diffRate: '10%',
+      diffRate: '13%',
       management: '성과진행',
     },
     {
@@ -248,7 +248,7 @@ const ContentSearch = () => {
       title: '이민영 원장과 함께하는 울트라 소닉 웨이브',
       number: 1245,
       date: '2022-02-24',
-      diffRate: '10%',
+      diffRate: '-6%',
       management: '관리요함',
     },
     {
@@ -257,7 +257,7 @@ const ContentSearch = () => {
       title: '똑같은 형태의 당뇨병일 가진 사람은 결코 없다',
       number: 978,
       date: '2021-09-27',
-      diffRate: '10%',
+      diffRate: '-11%',
       management: '관리요함',
     },
     {
@@ -266,7 +266,7 @@ const ContentSearch = () => {
       title: '의로운 클라쓰 -심장내과 편-',
       number: 784,
       date: '2022-01-27',
-      diffRate: '10%',
+      diffRate: '2%',
       management: '신경요함',
     },
   ]);
@@ -290,6 +290,12 @@ const ContentSearch = () => {
     );
   };
 
+  const dateToNumber = (date: string) => {
+    const dateArr = date.split('-');
+    const dateString = dateArr.reduce((acc, cur) => (acc += cur), '');
+    return Number(dateString);
+  };
+
   const hanldleViewClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const currentId = e.currentTarget.id;
     buttonLabelChange(currentId);
@@ -306,7 +312,10 @@ const ContentSearch = () => {
         return copy.sort((a, b) => b.number - a.number);
       });
     } else if (clickedIdx === 1) {
-      setShowData(fullData);
+      setShowData(() => {
+        const copy = [...fullData];
+        return copy.sort((a, b) => dateToNumber(a.date) - dateToNumber(b.date));
+      });
     } else if (clickedIdx === 2) {
       setShowData(fullData.filter((data) => data.management === '관리요함'));
     } else if (clickedIdx === 3) {
