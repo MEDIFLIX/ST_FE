@@ -109,8 +109,8 @@ const OriginalPieChart = ({ title, pieWidth, pieHeight }: IPieChart) => {
     labels: ['Red', 'Blue', 'Yellow', 'Green'],
     datasets: [
       {
-        label: '# of Votes',
-        data: [20, 20, 60],
+        label: '비율%',
+        data: [33.3, 33.3, 33.3],
         backgroundColor: ['#FC3838', '#33864A', '#FCD138'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
         borderWidth: 1,
@@ -131,7 +131,7 @@ const OriginalPieChart = ({ title, pieWidth, pieHeight }: IPieChart) => {
           {labelData.map((val, idx) => (
             <div className="legendBox">
               <span className="legendLabel"></span>
-              <div>{val}</div>
+              <div>{val}%</div>
             </div>
           ))}
         </div>

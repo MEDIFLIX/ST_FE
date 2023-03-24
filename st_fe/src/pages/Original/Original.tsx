@@ -133,19 +133,19 @@ const Original = () => {
           <ContentGridBox>
             <WhiteBox className={'grid-totalView'}>
               <div className="content_title">영상 누적 주회수</div>
-              <div className="content_value">111,111</div>
+              <div className="content_value">104,223</div>
             </WhiteBox>
             <WhiteBox className={'grid-totalPlay'}>
               <div className="content_title">최다 영상 조회수</div>
-              <div className="content_value">333,333</div>
+              <div className="content_value">3,023</div>
             </WhiteBox>
             <WhiteBox className={'grid-maxView'}>
               <div className="content_title">최다 시청 진료과</div>
-              <div className="content_value">정형외과</div>
+              <div className="content_value">신경외과</div>
             </WhiteBox>
             <WhiteBox className={'grid-todayVisit'}>
               <div className="content_title">최다 시청 병원</div>
-              <div className="content_value">이대 병원</div>
+              <div className="content_value">세브란스</div>
             </WhiteBox>
             <WhiteBox className={'grid-contentsRanking'}>
               <SmoothLineChart />

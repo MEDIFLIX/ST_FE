@@ -124,8 +124,8 @@ const SmoothLineChart = () => {
     labels,
     datasets: [
       {
-        label: '암의 주요한 특징 3가지',
-        data: [20, 120, 60, 140, 100, 50, 70],
+        label: '대한민국에서 의사로 산다는 것',
+        data: [401, 700, 323, 400, 500, 700],
         borderColor: '#D17777',
         backgroundColor: '#F36D74',
         borderWidth: 1,
@@ -133,8 +133,8 @@ const SmoothLineChart = () => {
         tension: 0.4,
       },
       {
-        label: '코로나 19 치료법',
-        data: [40, 140, 80, 160, 50, 60, 30],
+        label: '신경차단술의 모든 것',
+        data: [600, 325, 400, 200, 150, 160, 310],
         borderColor: '#8C8FEC',
         backgroundColor: '#F9D2D4',
         borderWidth: 1,
@@ -142,8 +142,8 @@ const SmoothLineChart = () => {
         tension: 0.4,
       },
       {
-        label: '위산 억제제의 특징',
-        data: [100, 10, 30, 65, 80, 60, 120],
+        label: 'EndoTODAY',
+        data: [140, 350, 220, 250, 280, 260, 420],
         borderColor: '#8C8FEC',
         backgroundColor: '#A3AAE7',
         borderWidth: 1,
@@ -160,15 +160,15 @@ const SmoothLineChart = () => {
         <div className="lineChart_labelBox">
           <div className="legendBox">
             <div className="lineChart_first" />
-            <div>1. 암의 주요한 특징 3가지</div>
+            <div>1. 대한민국에서 의사로 산다는 것</div>
           </div>
           <div className="legendBox">
             <div className="lineChart_second" />
-            <div>2. 코로나 19 치료법</div>
+            <div>2. 신경차단술의 모든 것</div>
           </div>
           <div className="legendBox">
             <div className="lineChart_third" />
-            <div>3. 위산 억제제의 특징</div>
+            <div>3. EndoTODAY</div>
           </div>
         </div>
         <div className="chartWrap">

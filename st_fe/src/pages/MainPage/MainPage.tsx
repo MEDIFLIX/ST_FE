@@ -169,7 +169,7 @@ const MainPage = () => {
   ]);
 
   const fetchContentList = async () => {
-    const { result } = await API.get('/order/selectWeeklyContents');
+    const { result } = await API.get('/original/selectWeeklyInfo');
     console.log(result);
   };
 
