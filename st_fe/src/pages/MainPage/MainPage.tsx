@@ -99,24 +99,82 @@ const ContentGridBox = styled.div`
   }
 `;
 
-type contentData = {
-  category: string;
-  count: number;
+export type ContentData = {
+  totalVisit: number;
+  newVisit: number;
+  dayContent: number;
+  withdrawalNum: number;
+  date: string;
+  day: string;
 };
 
 const MainPage = () => {
-  const [contentData, setContentData] = useState<contentData[]>([]);
+  const [contentData, setContentData] = useState<ContentData[]>([
+    {
+      date: '3.19',
+      day: 'Sun',
+      totalVisit: 123,
+      newVisit: 8,
+      dayContent: 962,
+      withdrawalNum: 5,
+    },
+    {
+      date: '3.20',
+      day: 'Mon',
+      totalVisit: 96,
+      newVisit: 12,
+      dayContent: 820,
+      withdrawalNum: 2,
+    },
+    {
+      date: '3.21',
+      day: 'Tue',
+      totalVisit: 143,
+      newVisit: 12,
+      dayContent: 1203,
+      withdrawalNum: 1,
+    },
+    {
+      date: '3.22',
+      day: 'Wen',
+      totalVisit: 124,
+      newVisit: 8,
+      dayContent: 1402,
+      withdrawalNum: 0,
+    },
+    {
+      date: '3.23',
+      day: 'Thu',
+      totalVisit: 146,
+      newVisit: 4,
+      dayContent: 1295,
+      withdrawalNum: 3,
+    },
+    {
+      date: '3.24',
+      day: 'Fri',
+      totalVisit: 123,
+      newVisit: 7,
+      dayContent: 789,
+      withdrawalNum: 2,
+    },
+    {
+      date: '3.25',
+      day: 'Sat',
+      totalVisit: 190,
+      newVisit: 21,
+      dayContent: 2345,
+      withdrawalNum: 1,
+    },
+  ]);
 
   const fetchContentList = async () => {
     const { result } = await API.get('/order/selectWeeklyContents');
-    setContentData(result);
-    console.log(contentData);
+    console.log(result);
   };
 
   const listLabel1 = ['정형외과', '성형외과', '내과'];
   const listLabel2 = ['세브란스', '서울성모', '이대병원'];
-
-  console.log(contentData);
 
   useEffect(() => {
     fetchContentList();
@@ -130,10 +188,10 @@ const MainPage = () => {
           <Title>Mediflix DashBoard</Title>
           <ContentGridBox>
             <ContentBox className={'grid-chart'}>
-              <LineChart />
+              <LineChart contentData={contentData} />
             </ContentBox>
             <ContentBox className={'grid-analysis'}>
-              <Analysis />
+              <Analysis contentData={contentData} />
             </ContentBox>
             <ContentBox className={'grid-graph'}>
               <BarChart />
