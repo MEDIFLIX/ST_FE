@@ -58,13 +58,13 @@ const BarBox = styled.div`
   margin-top: 10px;
 
   div:nth-child(1) {
-    flex: 1;
+    flex: 0.5;
   }
   div:nth-child(2) {
     flex: 1;
   }
   div:nth-child(3) {
-    flex: 2;
+    flex: 2.5;
   }
   div:nth-child(4) {
     flex: 1;
@@ -99,7 +99,7 @@ const ContentBox = styled.div`
   }
 
   div:nth-child(1) {
-    flex: 1;
+    flex: 0.5;
   }
 
   div:nth-child(2) {
@@ -107,7 +107,7 @@ const ContentBox = styled.div`
     margin-top: 7px;
   }
   div:nth-child(3) {
-    flex: 2;
+    flex: 2.5;
   }
   div:nth-child(4) {
     flex: 1;

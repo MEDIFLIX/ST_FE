@@ -9,7 +9,7 @@ import ContentList from './components/ContentList';
 import PieChart from './components/PieChart';
 import MemoBar from '../../components/MemoBar';
 import * as API from '../../api/API';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -99,18 +99,27 @@ const ContentGridBox = styled.div`
   }
 `;
 
+type contentData = {
+  category: string;
+  count: number;
+};
+
 const MainPage = () => {
-  const fetchBoardList = async () => {
-    const data = await API.get('/board/list');
-    console.log('data', data);
-    return data;
+  const [contentData, setContentData] = useState<contentData[]>([]);
+
+  const fetchContentList = async () => {
+    const { result } = await API.get('/order/selectWeeklyContents');
+    setContentData(result);
+    console.log(contentData);
   };
 
   const listLabel1 = ['정형외과', '성형외과', '내과'];
   const listLabel2 = ['세브란스', '서울성모', '이대병원'];
 
+  console.log(contentData);
+
   useEffect(() => {
-    const boardList = fetchBoardList();
+    fetchContentList();
   }, []);
   return (
     <MainContainer>

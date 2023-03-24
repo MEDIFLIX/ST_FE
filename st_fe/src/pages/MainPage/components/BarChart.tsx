@@ -90,15 +90,17 @@ const RankBox = styled.div`
 `;
 
 const BarChart = () => {
-  const labels = ['ORIGINAL', 'VOD', 'DRUG', 'LIFE'];
+  const labels = ['ORIGINAL', 'VOD', 'DRUG'];
 
   const data = {
     labels,
     datasets: [
       {
         label: 'Dataset 1',
-        data: [300, 200, 500, 150],
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        data: [300, 200, 500],
+        backgroundColor: ['#B85E5E', '#E1ACAC', '#E31E26'],
+        barPercentage: 1,
+        barThickness: 18,
       },
     ],
   };
