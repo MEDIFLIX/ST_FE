@@ -29,15 +29,17 @@ const ClinicIcon = styled.img`
   height: 37px;
 `;
 
-const ListItems = () => {
-  const datas = ['정형외과', '성형외과', '내과'];
+type ListItemsProp = {
+  labels: string[];
+};
 
+const ListItems = ({ labels }: ListItemsProp) => {
   return (
     <ListContainer>
       <div className="imgBox">
         <ClinicIcon src="/img/clinical_notes.svg" alt="Clinic" />
       </div>
-      {datas.map((val, idx) => (
+      {labels.map((val, idx) => (
         <div className="labelBox">
           <div>{`${idx + 1}순위`}</div>
           <div>{val}</div>

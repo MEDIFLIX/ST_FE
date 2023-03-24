@@ -106,6 +106,9 @@ const MainPage = () => {
     return data;
   };
 
+  const listLabel1 = ['정형외과', '성형외과', '내과'];
+  const listLabel2 = ['세브란스', '서울성모', '이대병원'];
+
   useEffect(() => {
     const boardList = fetchBoardList();
   }, []);
@@ -127,10 +130,10 @@ const MainPage = () => {
               <BarChart />
             </ContentBox>
             <ContentBox className={'grid-item1'}>
-              <ListItems />
+              <ListItems labels={listLabel1} />
             </ContentBox>
             <ContentBox className={'grid-item2'}>
-              <ListItems />
+              <ListItems labels={listLabel2} />
             </ContentBox>
             <ContentBox className={'grid-content'}>
               <ContentList />
